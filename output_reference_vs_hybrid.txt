@@ -1,0 +1,2243 @@
+========== adv =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/adv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/adv.h90
+public :: adv_momx, adv_momy, adv_momz, adv_scalar, calcflxz, calcflxz_1d, adv_momx_tlad, adv_momy_tlad, adv_momz_tlad, adv_scalar_tlad, calcflxz_tlad
+public :: adv_momx, adv_momy, adv_momz, adv_scalar, calcflxz, calcflxz_1d, adv_momx_tlad, adv_momy_tlad, adv_momz_tlad, adv_scalar_tlad, calcflxz_tlad
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=2147, combined=2005, changed=1000, unchanged=1005, subroutine_definitions=2, calls=17, imports=1, data_definitions=0, save=0, parameter=0, openmp=12, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=966, radiation=0, storage_order=0, data_spec=0, other=1)
+========== coriolis =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/coriolis.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/coriolis.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=161, combined=138, changed=3, unchanged=135, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== curvature =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/curvature.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/curvature.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=336, combined=288, changed=5, unchanged=283, subroutine_definitions=1, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== dynamics =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/dynamics.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/dynamics.h90
+output_temp = rmpt_ptb_v(47,0,0,it_calc)
+output_temp = rmpt_ptb_v(47,0,0,it_calc)
+rqx_v_sed(k) = rqx_v(k) + ( tend_rqx_v_sed + tend_rqx_v_rk(k) + tend_rqx_v_l(k)    ) * dts
+rqnx_v_sed(k) = rqnx_v(k) + ( tend_rqnx_v_sed + tend_rqnx_v_rk(k) + tend_rqnx_v_l(k)   ) * dts
+rqnx_v_sed(1:nz) = 0._rp
+output_temp = rmpt_ptb_v(47,0,0,it_calc)
+output_temp = rmpt_ptb_v(47,0,0,it_calc)
+rqx_v_sed(k) = rqx_v(k) + ( tend_rqx_v_sed + tend_rqx_v_rk(k) + tend_rqx_v_l(k)    ) * dts
+rqnx_v_sed(k) = rqnx_v(k) + ( tend_rqnx_v_sed + tend_rqnx_v_rk(k) + tend_rqnx_v_l(k)   ) * dts
+rqnx_v_sed(1:nz) = 0._rp
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=226, combined=166, changed=49, unchanged=117, subroutine_definitions=4, calls=20, imports=12, data_definitions=0, save=0, parameter=1, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=3, radiation=0, storage_order=0, data_spec=4, other=5)
+========== hevi =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/hevi.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/hevi.h90
+mom_z_v_rk_s(0,i,j) = - ( dzidx_ph(0,i,j) * ( mom_x_v_rk_s(1,i-1,j) * jd_uf(1,i-1,j) + mom_x_v_rk_s(1,i  ,j) * jd_uf(1,i  ,j) ) * 0.5_rp + dzidy_ph(0,i,j) * ( mom_y_v_rk_s(1,i,j-1) * jd_vf(1,i,j-1) + mom_y_v_rk_s(1,i,j  ) * jd_vf(1,i,j  ) ) * 0.5_rp ) * rdzidz_ph(0,i,j) * rjd_ph(0,i,j)
+mom_z_v_rk_s(k,i,j) = mom_z_v_s(k,i,j) + dt_rk_s * ( - exner_h * (flux_rmpt_ptb_v(k+1) - flux_rmpt_ptb_v(k)) - (total_tend_dens_ptb_v(k+1)  + total_tend_dens_ptb_v(k)) + tend_mom_z_v_rk(k,i,j) )
+mom_z_v_rk_s(0,i,j) = - ( dzidx_ph(0,i,j) * ( mom_x_v_rk_s(1,i-1,j) * jd_uf(1,i-1,j) + mom_x_v_rk_s(1,i  ,j) * jd_uf(1,i  ,j) ) * 0.5_rp + dzidy_ph(0,i,j) * ( mom_y_v_rk_s(1,i,j-1) * jd_vf(1,i,j-1) + mom_y_v_rk_s(1,i,j  ) * jd_vf(1,i,j  ) ) * 0.5_rp ) * rdzidz_ph(0,i,j) * rjd_ph(0,i,j)
+mom_z_v_rk_s(k,i,j) = mom_z_v_s(k,i,j) + dt_rk_s * ( - exner_h * (flux_rmpt_ptb_v(k+1) - flux_rmpt_ptb_v(k)) - (total_tend_dens_ptb_v(k+1)  + total_tend_dens_ptb_v(k)) + tend_mom_z_v_rk(k,i,j) )
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1589, combined=1307, changed=43, unchanged=1264, subroutine_definitions=4, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=1, style=8, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=26, radiation=0, storage_order=0, data_spec=0, other=2)
+========== prc =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/prc.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/prc.h90
+public :: dyn_prc, calc_flux_prc
+public :: dyn_prc, calc_flux_prc
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=176, combined=172, changed=24, unchanged=148, subroutine_definitions=1, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=10, style=0, parallel_loops=10, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=1)
+========== sediment =============
+refpath: branches/reference/asuca-kij/Src/Dynamics/sediment.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/sediment.h90
+integer(4):: i
+integer(4):: j
+tend_precp_rate_qa(i,j,id_qx) = 0._rp
+if ( timestep_counter_sed > 1) then
+if ( timestep_counter_sed == 1 .and. dt_rk_rest < dt_rk_rest_epsln ) then
+exit
+integer(4):: i
+integer(4):: j
+tend_precp_rate_qa(i,j,id_qx) = 0._rp
+if ( timestep_counter_sed > 1) then
+if ( timestep_counter_sed == 1 .and. dt_rk_rest < dt_rk_rest_epsln ) then
+exit
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=246, combined=175, changed=28, unchanged=147, subroutine_definitions=0, calls=12, imports=4, data_definitions=0, save=0, parameter=0, openmp=2, style=0, parallel_loops=2, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=6)
+========== gpvmodify =============
+refpath: branches/reference/asuca-kij/Src/Ini/gpvmodify.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/gpvmodify.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=439, combined=389, changed=7, unchanged=382, subroutine_definitions=0, calls=2, imports=3, data_definitions=0, save=0, parameter=0, openmp=1, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== grd_parm =============
+refpath: branches/reference/asuca-kij/Src/Ini/grd_parm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/grd_parm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=75, combined=72, changed=0, unchanged=72, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ideal =============
+refpath: branches/reference/asuca-kij/Src/Ini/ideal.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/ideal.h90
+rnxny = 1.0d0 / real(nx * ny)
+do k = nz_mn, nz_mx
+rnxny = 1.0d0 / real(nx * ny)
+do k = nz_mn, nz_mx
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=279, combined=247, changed=8, unchanged=239, subroutine_definitions=0, calls=1, imports=2, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=2)
+========== ideal_make_grid =============
+refpath: branches/reference/asuca-kij/Src/Ini/ideal_make_grid.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/ideal_make_grid.f90
+contains
+integer(4), intent(in):: nzs
+integer(4), intent(in):: nze
+do k = nzs, nze
+p(k,nx_mn:0,j)    = p(k,nx-nx_mgn+1:nx,j)
+p(k,nx+1:nx_mx,j) = p(k,1:nx_mgn,j)
+do k = nzs, nze
+p(k,i,ny_mn:0)    = p(k,i,ny-ny_mgn+1:ny)
+p(k,i,ny+1:ny_mx) = p(k,i,1:ny_mgn)
+contains
+integer(4), intent(in):: nzs
+integer(4), intent(in):: nze
+do k = nzs, nze
+p(k,nx_mn:0,j)    = p(k,nx-nx_mgn+1:nx,j)
+p(k,nx+1:nx_mx,j) = p(k,1:nx_mgn,j)
+do k = nzs, nze
+p(k,i,ny_mn:0)    = p(k,i,ny-ny_mgn+1:ny)
+p(k,i,ny+1:ny_mx) = p(k,i,1:ny_mgn)
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=199, combined=184, changed=17, unchanged=167, subroutine_definitions=1, calls=2, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=9)
+========== interph2 =============
+refpath: branches/reference/asuca-kij/Src/Ini/interph2.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/interph2.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=232, combined=222, changed=1, unchanged=221, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=1, other=0)
+========== make_grid =============
+refpath: branches/reference/asuca-kij/Src/Ini/make_grid.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/make_grid.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=310, combined=268, changed=2, unchanged=266, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mapfactor =============
+refpath: branches/reference/asuca-kij/Src/Ini/mapfactor.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mapfactor.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=167, combined=145, changed=3, unchanged=142, subroutine_definitions=2, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mapproj =============
+refpath: branches/reference/asuca-kij/Src/Ini/mapproj.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/mapproj.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=528, combined=501, changed=1, unchanged=500, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mapproj_single =============
+refpath: branches/reference/asuca-kij/Src/Ini/mapproj_single.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mapproj_single.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=511, combined=484, changed=0, unchanged=484, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkg =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkg.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkg.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=771, combined=544, changed=1, unchanged=543, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=674, combined=395, changed=0, unchanged=395, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_asuca =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_asuca.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_asuca.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=989, combined=686, changed=0, unchanged=686, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_com =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_com.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_com.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1447, combined=1022, changed=0, unchanged=1022, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_input =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_input.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_input.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=353, combined=179, changed=0, unchanged=179, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_mfin =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_mfin.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_mfin.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=331, combined=236, changed=0, unchanged=236, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_nhm =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_nhm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_nhm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1221, combined=883, changed=1, unchanged=882, subroutine_definitions=0, calls=1, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_ozn =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_ozn.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_ozn.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=748, combined=660, changed=0, unchanged=660, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_prm =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_prm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_prm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=8, combined=8, changed=0, unchanged=8, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkib_vars =============
+refpath: branches/reference/asuca-kij/Src/Ini/mkib_vars.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/mkib_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=57, combined=57, changed=0, unchanged=57, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== nflutlty3 =============
+refpath: branches/reference/asuca-kij/Src/Ini/nflutlty3.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/nflutlty3.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=175, combined=163, changed=0, unchanged=163, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== nhmcst =============
+refpath: branches/reference/asuca-kij/Src/Ini/nhmcst.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/nhmcst.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=385, combined=369, changed=5, unchanged=364, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=5, other=0)
+========== prep =============
+refpath: branches/reference/asuca-kij/Src/Ini/prep.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/prep.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=319, combined=265, changed=2, unchanged=263, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== prep_phys_ini =============
+refpath: branches/reference/asuca-kij/Src/Ini/prep_phys_ini.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/prep_phys_ini.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=328, combined=233, changed=12, unchanged=221, subroutine_definitions=1, calls=1, imports=3, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=6, radiation=0, storage_order=0, data_spec=1, other=0)
+========== prepare_nest =============
+refpath: branches/reference/asuca-kij/Src/Ini/prepare_nest.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/prepare_nest.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=20, combined=16, changed=0, unchanged=16, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== prepsub =============
+refpath: branches/reference/asuca-kij/Src/Ini/prepsub.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/prepsub.h90
+public set_allvar_ideal, read_allvar, set_surface_ideal, set_surface_nest, intp_2d, set_position, calc_meanfield, intp_2d_nearest, set_reference_field, calc_psea2paisurf, calc_psrf2paisurf_psea, height2fk, make_confcard_ideal, readparm_numgrid, readparm_other, readparm_add_stmip, readparm_add_bubble, readparm_add_sk1994, readparm_add_nest, readparm_arashi_opt, alloc_for_prep, read_metrics_pre, alloc_fvar1, alloc_dvar1, alloc_dvar2, alloc_ref_var, set_ideal_parameters, prep_parameter_ini, set_gridinfo_externalmodel, set_fifj_externalmodel, set_fk_externalmodel, set_latlon_externalmodel, solve_hydro
+public set_allvar_ideal, read_allvar, set_surface_ideal, set_surface_nest, intp_2d, set_position, calc_meanfield, intp_2d_nearest, set_reference_field, calc_psea2paisurf, calc_psrf2paisurf_psea, height2fk, make_confcard_ideal, readparm_numgrid, readparm_other, readparm_add_stmip, readparm_add_bubble, readparm_add_sk1994, readparm_add_nest, readparm_arashi_opt, alloc_for_prep, read_metrics_pre, alloc_fvar1, alloc_dvar1, alloc_dvar2, alloc_ref_var, set_ideal_parameters, prep_parameter_ini, set_gridinfo_externalmodel, set_fifj_externalmodel, set_fk_externalmodel, set_latlon_externalmodel, solve_hydro
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=2992, combined=2573, changed=41, unchanged=2532, subroutine_definitions=7, calls=22, imports=2, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=2, radiation=0, storage_order=0, data_spec=7, other=1)
+========== rs_tab =============
+refpath: branches/reference/asuca-kij/Src/Ini/rs_tab.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/rs_tab.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=73, combined=69, changed=1, unchanged=68, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_parameters =============
+refpath: branches/reference/asuca-kij/Src/Ini/sf_parameters.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/sf_parameters.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=16, combined=16, changed=0, unchanged=16, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sktrue =============
+refpath: branches/reference/asuca-kij/Src/Ini/sktrue.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Ini/sktrue.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=107, combined=103, changed=1, unchanged=102, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== vardef =============
+refpath: branches/reference/asuca-kij/Src/Ini/vardef.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/vardef.f90
+
+implicit none
+
+implicit none
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=7, combined=7, changed=5, unchanged=2, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=3, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=2)
+========== vertical =============
+refpath: branches/reference/asuca-kij/Src/Ini/vertical.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Ini/vertical.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=495, combined=460, changed=1, unchanged=459, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_ps_m =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_ps_m.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_ps_m.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=57, combined=36, changed=0, unchanged=36, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_pwv =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_pwv.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_pwv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=181, combined=102, changed=0, unchanged=102, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_rh =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_rh.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_rh.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=182, combined=109, changed=0, unchanged=109, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_rvl =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_rvl.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_rvl.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=142, combined=95, changed=0, unchanged=95, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_sfc =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_sfc.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_sfc.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=357, combined=216, changed=0, unchanged=216, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_tb =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_tb.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_tb.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=661, combined=349, changed=1, unchanged=348, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_temp =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_temp.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_temp.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=175, combined=105, changed=0, unchanged=105, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_u =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_u.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_u.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=66, combined=44, changed=0, unchanged=44, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== h_phys_v =============
+refpath: branches/reference/asuca-kij/Src/Innovation/h_phys_v.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/h_phys_v.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=66, combined=44, changed=0, unchanged=44, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== innovation =============
+refpath: branches/reference/asuca-kij/Src/Innovation/innovation.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/innovation.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=264, combined=243, changed=0, unchanged=243, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== innovation_comm =============
+refpath: branches/reference/asuca-kij/Src/Innovation/innovation_comm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/innovation_comm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=84, combined=77, changed=0, unchanged=77, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== innovation_diag =============
+refpath: branches/reference/asuca-kij/Src/Innovation/innovation_diag.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/innovation_diag.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=588, combined=517, changed=0, unchanged=517, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== innovation_vars =============
+refpath: branches/reference/asuca-kij/Src/Innovation/innovation_vars.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/innovation_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=85, combined=84, changed=0, unchanged=84, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== obs_input =============
+refpath: branches/reference/asuca-kij/Src/Innovation/obs_input.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/obs_input.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=20, combined=20, changed=0, unchanged=20, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== obs_input_cda =============
+refpath: branches/reference/asuca-kij/Src/Innovation/obs_input_cda.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/obs_input_cda.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=418, combined=369, changed=0, unchanged=369, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== obs_input_nml =============
+refpath: branches/reference/asuca-kij/Src/Innovation/obs_input_nml.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/obs_input_nml.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=131, combined=126, changed=0, unchanged=126, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== obs_manager =============
+refpath: branches/reference/asuca-kij/Src/Innovation/obs_manager.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/obs_manager.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=944, combined=806, changed=0, unchanged=806, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== operator_element =============
+refpath: branches/reference/asuca-kij/Src/Innovation/operator_element.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/operator_element.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=375, combined=293, changed=0, unchanged=293, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== operator_physics =============
+refpath: branches/reference/asuca-kij/Src/Innovation/operator_physics.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/operator_physics.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=149, combined=76, changed=0, unchanged=76, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== operator_space =============
+refpath: branches/reference/asuca-kij/Src/Innovation/operator_space.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/operator_space.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=110, combined=107, changed=0, unchanged=107, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== varqc =============
+refpath: branches/reference/asuca-kij/Src/Innovation/varqc.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/varqc.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=67, combined=65, changed=0, unchanged=65, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== wrapper_physlib =============
+refpath: branches/reference/asuca-kij/Src/Innovation/wrapper_physlib.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/wrapper_physlib.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=437, combined=155, changed=0, unchanged=155, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== wrapper_rttov =============
+refpath: branches/reference/asuca-kij/Src/Innovation/wrapper_rttov.F90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Innovation/wrapper_rttov.F90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1094, combined=818, changed=0, unchanged=818, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== arashi =============
+refpath: branches/reference/asuca-kij/Src/Main/arashi.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Main/arashi.h90
+
+rungekutta_long: do rk_counter = 1, 3
+timestep_short: do timestep_counter_s = 1, nsound
+rungekutta_short: do rk_counter_s = 1, 3
+end do rungekutta_short
+end do timestep_short
+end do rungekutta_long
+
+rungekutta_long: do rk_counter = 1, 3
+timestep_short: do timestep_counter_s = 1, nsound
+rungekutta_short: do rk_counter_s = 1, 3
+end do rungekutta_short
+end do timestep_short
+end do rungekutta_long
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=123, combined=108, changed=17, unchanged=91, subroutine_definitions=1, calls=1, imports=8, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=7)
+========== asuca =============
+refpath: branches/reference/asuca-kij/Src/Main/asuca.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Main/asuca.F90
+timestep_long: do
+if ( timeset_finish == 1 ) then
+exit timestep_long
+end do timestep_long
+timestep_long: do
+if ( timeset_finish == 1 ) then
+exit timestep_long
+end do timestep_long
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=73, combined=72, changed=6, unchanged=66, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=4)
+========== checktool =============
+refpath: branches/reference/asuca-kij/Src/Misc/checktool.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/checktool.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=165, combined=148, changed=3, unchanged=145, subroutine_definitions=0, calls=0, imports=2, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== checktool_vars =============
+refpath: branches/reference/asuca-kij/Src/Misc/checktool_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/checktool_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=7, combined=7, changed=1, unchanged=6, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ctime =============
+refpath: branches/reference/asuca-kij/Src/Misc/ctime.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/ctime.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=114, combined=110, changed=4, unchanged=106, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== filetool =============
+refpath: branches/reference/asuca-kij/Src/Misc/filetool.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/filetool.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=338, combined=329, changed=1, unchanged=328, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== nrtype =============
+refpath: branches/reference/asuca-kij/Src/Misc/nrtype.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/nrtype.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=7, combined=7, changed=1, unchanged=6, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== optswitch_tool =============
+refpath: branches/reference/asuca-kij/Src/Misc/optswitch_tool.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/optswitch_tool.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=209, combined=209, changed=1, unchanged=208, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rest2grads =============
+refpath: branches/reference/asuca-kij/Src/Misc/rest2grads.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Misc/rest2grads.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=53, combined=50, changed=1, unchanged=49, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== maxminave =============
+refpath: branches/reference/asuca-kij/Src/Monit/maxminave.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/maxminave.h90
+r8_ave = 0.d0
+r8_ave = r8_ave + var(k,i,j)
+r8_ave = 0.d0
+r8_ave = r8_ave + var(k,i,j)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=335, combined=303, changed=43, unchanged=260, subroutine_definitions=3, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=2, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=34, radiation=0, storage_order=0, data_spec=2, other=2)
+========== monitflux =============
+refpath: branches/reference/asuca-kij/Src/Monit/monitflux.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/monitflux.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=337, combined=325, changed=10, unchanged=315, subroutine_definitions=0, calls=2, imports=2, data_definitions=0, save=0, parameter=0, openmp=0, style=5, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== output =============
+refpath: branches/reference/asuca-kij/Src/Monit/output.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/output.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1130, combined=1039, changed=56, unchanged=983, subroutine_definitions=7, calls=35, imports=5, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=8, other=0)
+========== output_grads =============
+refpath: branches/reference/asuca-kij/Src/Monit/output_grads.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/output_grads.f90
+print *, "precision is", kind(r4)
+print *, "precision is", kind(r4)
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=355, combined=347, changed=2, unchanged=345, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=1)
+========== output_netcdf =============
+refpath: branches/reference/asuca-kij/Src/Monit/output_netcdf.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/output_netcdf.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=433, combined=431, changed=1, unchanged=430, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== output_nusdas =============
+refpath: branches/reference/asuca-kij/Src/Monit/output_nusdas.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/output_nusdas.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=415, combined=391, changed=1, unchanged=390, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== output_vars =============
+refpath: branches/reference/asuca-kij/Src/Monit/output_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Monit/output_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=33, combined=33, changed=1, unchanged=32, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mpi_comm =============
+refpath: branches/reference/asuca-kij/Src/Mpi/mpi_comm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Mpi/mpi_comm.h90
+module procedure grpbcast_set_i, grpbcast_set_i1, grpbcast_set_d, grpbcast_set_d1, grpbcast_set_d2, grpbcast_set_c, grpbcast_set_l
+module procedure grpbcast_set_i, grpbcast_set_i1, grpbcast_set_d, grpbcast_set_d1, grpbcast_set_d2, grpbcast_set_c, grpbcast_set_l
+print *, "testprint-1"
+print *, "testprint-2"
+integer(4) :: ios, allocstat
+print *, "testprint-3.1"
+print *, "testprint-3.2", allocstat
+print *, "testprint-4.1"
+print *, "testprint-4.2", allocstat
+print *, "testprint-5.1"
+read(mt, iostat=ios) buf_read_all(:,:,ps:pe)
+print *, "testprint-5.2", ios
+module procedure grpbcast_set_i, grpbcast_set_i1, grpbcast_set_d, grpbcast_set_d1, grpbcast_set_d2, grpbcast_set_c, grpbcast_set_l
+module procedure grpbcast_set_i, grpbcast_set_i1, grpbcast_set_d, grpbcast_set_d1, grpbcast_set_d2, grpbcast_set_c, grpbcast_set_l
+print *, "testprint-1"
+print *, "testprint-2"
+integer(4) :: ios, allocstat
+print *, "testprint-3.1"
+print *, "testprint-3.2", allocstat
+print *, "testprint-4.1"
+print *, "testprint-4.2", allocstat
+print *, "testprint-5.1"
+read(mt, iostat=ios) buf_read_all(:,:,ps:pe)
+print *, "testprint-5.2", ios
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=2374, combined=2183, changed=51, unchanged=2132, subroutine_definitions=5, calls=1, imports=2, data_definitions=0, save=2, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=27, radiation=0, storage_order=0, data_spec=2, other=12)
+========== mpi_control =============
+refpath: branches/reference/asuca-kij/Src/Mpi/mpi_control.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Mpi/mpi_control.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=108, combined=101, changed=2, unchanged=99, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== calendar =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/calendar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/calendar.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=172, combined=170, changed=3, unchanged=167, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== pp_monit =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_monit.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_monit.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=156, combined=152, changed=8, unchanged=144, subroutine_definitions=0, calls=3, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=4, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_monit_type =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_monit_type.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_monit_type.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=12, combined=12, changed=0, unchanged=12, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_phys_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_phys_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_phys_const.h90
+
+public :: pp_phys_const_set
+
+public :: pp_phys_const_set
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=139, combined=134, changed=24, unchanged=110, subroutine_definitions=0, calls=21, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=2)
+========== pp_print_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_print_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_print_parm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=121, combined=117, changed=5, unchanged=112, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=5, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_service =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_service.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_service.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=20, combined=20, changed=0, unchanged=20, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_tlad_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_tlad_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_tlad_option.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=24, combined=23, changed=1, unchanged=22, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_vardef =============
+refpath: branches/reference/asuca-kij/Src/Physics/comm/pp_vardef.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/comm/pp_vardef.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=8, combined=8, changed=0, unchanged=8, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== conv_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/conv/conv_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/conv/conv_grid.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=29, combined=29, changed=2, unchanged=27, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== conv_kf_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/conv/conv_kf_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/conv/conv_kf_const.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=58, combined=55, changed=1, unchanged=54, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== conv_kf_lut =============
+refpath: branches/reference/asuca-kij/Src/Physics/conv/conv_kf_lut.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/conv/conv_kf_lut.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=123, combined=121, changed=1, unchanged=120, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== conv_kf_main =============
+refpath: branches/reference/asuca-kij/Src/Physics/conv/conv_kf_main.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/conv/conv_kf_main.f90
+wkl = (w0avg1d(klclm1) + (w0avg1d(klcl) - w0avg1d(klclm1)) * dlp) * dx * 4.0d-5 - wklcl
+wkl = (w0avg1d(klclm1) + (w0avg1d(klcl) - w0avg1d(klclm1)) * dlp) * dx * 4.0d-5 - wklcl
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=2489, combined=2333, changed=1, unchanged=2332, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== conv_kf_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/conv/conv_kf_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/conv/conv_kf_parm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=188, combined=182, changed=2, unchanged=180, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== caltabl =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/caltabl.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/caltabl.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=28, combined=26, changed=0, unchanged=26, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== cldemi_msm =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/cldemi_msm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/cldemi_msm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=82, combined=78, changed=0, unchanged=78, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== fsi_comm =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/fsi_comm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/fsi_comm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=54, combined=49, changed=0, unchanged=49, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== fsi_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/fsi_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/fsi_const.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=15, combined=15, changed=2, unchanged=13, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== fsi_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/fsi_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/fsi_grid.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=17, combined=17, changed=3, unchanged=14, subroutine_definitions=0, calls=2, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== gprf =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/gprf.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/gprf.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=67, combined=38, changed=0, unchanged=38, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== khlli0 =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/khlli0.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/khlli0.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=111, combined=111, changed=0, unchanged=111, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== maxoverlap =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/maxoverlap.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/maxoverlap.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=62, combined=57, changed=0, unchanged=57, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkrfunc_ir =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/mkrfunc_ir.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/mkrfunc_ir.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=128, combined=128, changed=0, unchanged=128, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mkrfunc_wv =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/mkrfunc_wv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/mkrfunc_wv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=128, combined=128, changed=0, unchanged=128, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== msmfir =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/msmfir.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/msmfir.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=87, combined=72, changed=0, unchanged=72, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== msmfvs =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/msmfvs.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/msmfvs.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=119, combined=110, changed=0, unchanged=110, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== msmfwv =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/msmfwv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/msmfwv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=87, combined=72, changed=0, unchanged=72, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== plank =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/plank.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/plank.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=18, combined=18, changed=0, unchanged=18, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== q2cvr =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/q2cvr.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/q2cvr.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=84, combined=70, changed=0, unchanged=70, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rairad =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/rairad.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/rairad.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=93, combined=86, changed=0, unchanged=86, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== reftrs =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/reftrs.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/reftrs.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=407, combined=257, changed=0, unchanged=257, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== satcosz =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/satcosz.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/satcosz.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=59, combined=57, changed=0, unchanged=57, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== suncos =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/suncos.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/suncos.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=85, combined=78, changed=0, unchanged=78, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== transeir =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/transeir.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/transeir.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=41, combined=39, changed=0, unchanged=39, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== transewv =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/transewv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/transewv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=88, combined=80, changed=0, unchanged=80, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== xdata =============
+refpath: branches/reference/asuca-kij/Src/Physics/fsi/xdata.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/fsi/xdata.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=775, combined=115, changed=0, unchanged=115, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== read_constfile =============
+refpath: branches/reference/asuca-kij/Src/Physics/mjsib_input_sample/read_constfile.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mjsib_input_sample/read_constfile.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=157, combined=141, changed=79, unchanged=62, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=79, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_ac =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_ac.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_ac.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=573, combined=476, changed=0, unchanged=476, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_aut =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_aut.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_aut.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=51, combined=50, changed=0, unchanged=50, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_cnd =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_cnd.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_cnd.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=55, combined=45, changed=0, unchanged=45, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_comm =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_comm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_comm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=70, combined=67, changed=0, unchanged=67, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_const.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=20, combined=20, changed=0, unchanged=20, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_dep =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_dep.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_dep.f90
+if (factor * cimass > 0.0_r_size) then
+if (factor * cimass > 0.0_r_size) then
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=190, combined=167, changed=1, unchanged=166, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== mp_evp =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_evp.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_evp.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=30, combined=28, changed=0, unchanged=28, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_frz =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_frz.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_frz.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=91, combined=85, changed=0, unchanged=85, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_gamma =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_gamma.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_gamma.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=51, combined=50, changed=0, unchanged=50, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_grid.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=12, combined=12, changed=0, unchanged=12, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_main_crain =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_main_crain.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_main_crain.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=246, combined=196, changed=0, unchanged=196, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_main_wrain =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_main_wrain.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_main_wrain.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=128, combined=117, changed=0, unchanged=117, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_mce =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_mce.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_mce.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=130, combined=125, changed=0, unchanged=125, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_mlt =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_mlt.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_mlt.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=137, combined=117, changed=0, unchanged=117, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nud =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_nud.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_nud.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=59, combined=56, changed=1, unchanged=55, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_option.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=13, combined=13, changed=0, unchanged=13, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_parm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=107, combined=98, changed=0, unchanged=98, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_sediment =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_sediment.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_sediment.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=57, combined=56, changed=0, unchanged=56, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_slope =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_slope.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_slope.f90
+if (qg(kz) > qmin) then
+r_lmd_g(kz) = 0.0d0
+r_lmd_g_p2g(kz) = 0.0d0
+if (qg(kz) > qmin) then
+r_lmd_g(kz) = 0.0d0
+r_lmd_g_p2g(kz) = 0.0d0
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=79, combined=79, changed=3, unchanged=76, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=3)
+========== mp_tend =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_tend.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_tend.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=438, combined=331, changed=0, unchanged=331, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_tv =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_tv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_tv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=82, combined=82, changed=0, unchanged=82, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_vent =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp/mp_vent.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp/mp_vent.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=149, combined=138, changed=0, unchanged=138, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== module_mp_morr_two_moment =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/module_mp_morr_two_moment.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/module_mp_morr_two_moment.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=2612, combined=2293, changed=385, unchanged=1908, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=2, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=380, other=0)
+========== module_mp_thompson09 =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/module_mp_thompson09.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/module_mp_thompson09.f90
+if (REAL(Di_mean, r_size) .gt. 5.*D0s) then
+elseif (REAL(Di_mean, r_size) .lt. D0i) then
+tpi_ide(i,j) = GAMMP(mu_i+2.0, REAL(lami, r_size)*D0s) * 1.0D0
+t_Efrw(i,j) = MAX(0.0, MIN(REAL(Ef_rw, r_size), 0.95))
+t_Efsw(i,j) = MAX(0.0, MIN(REAL(Ef_sw, r_size), 0.95))
+tnr_rev(i,j,k) = GAMMP(mu_r+1.0_r_size, REAL(Dr(i)*lam, r_size)) * Nt_r
+if (REAL(Di_mean, r_size) .gt. 5.*D0s) then
+elseif (REAL(Di_mean, r_size) .lt. D0i) then
+tpi_ide(i,j) = GAMMP(mu_i+2.0, REAL(lami, r_size)*D0s) * 1.0D0
+t_Efrw(i,j) = MAX(0.0, MIN(REAL(Ef_rw, r_size), 0.95))
+t_Efsw(i,j) = MAX(0.0, MIN(REAL(Ef_sw, r_size), 0.95))
+tnr_rev(i,j,k) = GAMMP(mu_r+1.0_r_size, REAL(Dr(i)*lam, r_size)) * Nt_r
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=3172, combined=2765, changed=319, unchanged=2446, subroutine_definitions=1, calls=0, imports=1, data_definitions=10, save=0, parameter=83, openmp=0, style=8, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=209, other=6)
+========== module_mp_wdm6 =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/module_mp_wdm6.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/module_mp_wdm6.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1690, combined=1408, changed=154, unchanged=1254, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=1, parameter=41, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=110, other=0)
+========== module_mp_wsm6 =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/module_mp_wsm6.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/module_mp_wsm6.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1420, combined=1145, changed=130, unchanged=1015, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=1, parameter=28, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=99, other=0)
+========== mp_ext_morr_two_moment =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/mp_ext_morr_two_moment.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/mp_ext_morr_two_moment.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=320, combined=279, changed=0, unchanged=279, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_ext_thompson =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/mp_ext_thompson.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/mp_ext_thompson.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=222, combined=201, changed=0, unchanged=201, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_ext_wdm6 =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/mp_ext_wdm6.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/mp_ext_wdm6.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=312, combined=289, changed=0, unchanged=289, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_ext_wsm6 =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_ext/mp_ext_wsm6.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_ext/mp_ext_wsm6.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=284, combined=264, changed=0, unchanged=264, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm.f90
+if (t_pccnr == pccnr_kessler) then
+else if (t_pccnr == pccnr_berry_reinhardt) then
+else if (t_pccnr == pccnr_richard_chaumerliac) then
+stop 99
+logarg = bcdlr * dns_a(kz) * qcw(kz) / max(qncw(kz), 1.0e-10_r_size)
+logarg = brdlr * dns_a(kz) * qr(kz) / max(qnr(kz), 1.0e-10_r_size)
+logarg = qs(kz) * brdls * dns_a(kz) / max(qns(kz), 1.0e-10_r_size)
+if (t_pccnr == pccnr_kessler) then
+else if (t_pccnr == pccnr_berry_reinhardt) then
+else if (t_pccnr == pccnr_richard_chaumerliac) then
+stop 99
+logarg = bcdlr * dns_a(kz) * qcw(kz) / max(qncw(kz), 1.0e-10_r_size)
+logarg = brdlr * dns_a(kz) * qr(kz) / max(qnr(kz), 1.0e-10_r_size)
+logarg = qs(kz) * brdls * dns_a(kz) / max(qns(kz), 1.0e-10_r_size)
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=2264, combined=1725, changed=9, unchanged=1716, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=7)
+========== mp_nhm_adjnum =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_adjnum.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_adjnum.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=321, combined=314, changed=0, unchanged=314, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm_diag_qnx =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_diag_qnx.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_diag_qnx.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=60, combined=54, changed=0, unchanged=54, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm_func =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_func.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_func.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=93, combined=85, changed=0, unchanged=85, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm_gamma =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_gamma.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_gamma.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=60, combined=55, changed=0, unchanged=55, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm_ice =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_ice.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_ice.f90
+if (tempc < 0.0 .and. qvsw /= qvsi) then
+if (tempc < 0.0 .and. qvsw /= qvsi) then
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=856, combined=697, changed=1, unchanged=696, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== mp_nhm_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_option.f90
+integer(4), intent(in), optional :: t_pccnr_in
+integer(4), intent(in), optional :: t_pccnr_in
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=44, combined=42, changed=12, unchanged=30, subroutine_definitions=0, calls=8, imports=2, data_definitions=0, save=1, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== mp_nhm_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_parm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=296, combined=281, changed=67, unchanged=214, subroutine_definitions=0, calls=66, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_nhm_sat_adj =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_sat_adj.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_sat_adj.f90
+stop 99
+if (qi_dmy(kz) > 0.0) then
+qc_dmy(kz) = qi_dmy(kz) + qcw(kz)
+qc_dmy(kz) = qi_dmy(kz)
+if (qi_dmy(kz) > 0.0) then
+qc_dmy(kz) = qcw(kz) + qi_dmy(kz)
+pt_dmy(kz) = pt(kz) - hlf * r_cp * r_pi_loc(kz)  * qi_dmy(kz)
+qc_dmy(kz) = qi_dmy(kz) + qcw(kz) + (qvsw_dmy - qvsi_dmy) * xfact
+if (iregion(kz) == -1 .and. (qc_dmy(kz) + qi_dmy(kz) > qsum_min) )then
+qi_dmy(kz) = qi_dmy(kz)
+bcnclsat = 1.0 / (jiust1 * 2.0 * pi * dnsr * jiust2 * gamma_nhm_func(0.5_r_size * jiust2) * gamma_nhm_func(1.5_r_size) / gamma_nhm_func(0.5_r_size * jiust2 + 1.5_r_size) )
+stop 99
+if (qi_dmy(kz) > 0.0) then
+qc_dmy(kz) = qi_dmy(kz) + qcw(kz)
+qc_dmy(kz) = qi_dmy(kz)
+if (qi_dmy(kz) > 0.0) then
+qc_dmy(kz) = qcw(kz) + qi_dmy(kz)
+pt_dmy(kz) = pt(kz) - hlf * r_cp * r_pi_loc(kz)  * qi_dmy(kz)
+qc_dmy(kz) = qi_dmy(kz) + qcw(kz) + (qvsw_dmy - qvsi_dmy) * xfact
+if (iregion(kz) == -1 .and. (qc_dmy(kz) + qi_dmy(kz) > qsum_min) )then
+qi_dmy(kz) = qi_dmy(kz)
+bcnclsat = 1.0 / (jiust1 * 2.0 * pi * dnsr * jiust2 * gamma_nhm_func(0.5_r_size * jiust2) * gamma_nhm_func(1.5_r_size) / gamma_nhm_func(0.5_r_size * jiust2 + 1.5_r_size) )
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1229, combined=1030, changed=14, unchanged=1016, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=11)
+========== mp_nhm_tv =============
+refpath: branches/reference/asuca-kij/Src/Physics/mp_nhm/mp_nhm_tv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/mp_nhm/mp_nhm_tv.f90
+brdlr = 6.0 * gm(7,1)/ (pi * dns_r * gm(8, 1))
+r_lmd_r_p2r(kz) = exp(log(logarg) * one_third * p2r)
+brdlr = 1.0 / (pi * dns_r * pn0r_const)
+r_lmd_r(kz) = sqrt(sqrt(brdlr * dns_a(kz) * qr(kz)))
+r_lmd_s_p2s(kz) = exp(log(logarg) * one_third * p2s)
+r_lmd_s_p2s(kz) = exp(log(dns_a(kz) * qs(kz) / (pi * dns_s * pn0s_const)) * 0.25d0 * p2s)
+pn0s(kz) = puiss1_pow * exp(log(( 6.0 * dns_r * r_dns_a(kz) / ( qs(kz) * p1s * gm(1, 2) * sqrt_dns0_rdnsa(kz) ) * exp(log(( pi * dns_s * r_dns_a(kz) / qs(kz)) ) * puiss3)) ) * puiss2)
+r_lmd_s_p2s(kz) = exp(log( dns_a(kz) * qs(kz) / (pi * dns_s * pn0s(kz))) * 0.25d0 * p2s)
+brdlg = 1.0 / ( pi * dns_g )
+r_lmd_g_p2g(kz) = exp(log(tmp_r_lmd_g) * one_third * p2g)
+brdlg = sqrt( sqrt(1.0 / (pi * dns_g) ) )
+r_lmd_g_p2g(kz) = exp(log(dns_a(kz) * qg(kz) / ( pi * dns_g * pn0g_const )) * 0.25d0 * p2g)
+r_lmd_i_p2i = exp(log(dns_a(kz) * qci(kz) * brdli) * 0.25d0 * p2i)
+braci = 6.0_r_size / (pi * dnsci)
+if ( qnci(kz) > 1.0_r_size .and. qci(kz) > qmin ) then
+tv_i(kz) = exp( log( dns_a(kz)*qci(kz)/qnci(kz)*braci ) * one_third ) * 700.0_r_size * exp( log( sqrt_dns0_rdnsa(kz) ) * 0.7_r_size )
+brdlr = 6.0 * gm(7,1)/ (pi * dns_r * gm(8, 1))
+r_lmd_r_p2r(kz) = exp(log(logarg) * one_third * p2r)
+brdlr = 1.0 / (pi * dns_r * pn0r_const)
+r_lmd_r(kz) = sqrt(sqrt(brdlr * dns_a(kz) * qr(kz)))
+r_lmd_s_p2s(kz) = exp(log(logarg) * one_third * p2s)
+r_lmd_s_p2s(kz) = exp(log(dns_a(kz) * qs(kz) / (pi * dns_s * pn0s_const)) * 0.25d0 * p2s)
+pn0s(kz) = puiss1_pow * exp(log(( 6.0 * dns_r * r_dns_a(kz) / ( qs(kz) * p1s * gm(1, 2) * sqrt_dns0_rdnsa(kz) ) * exp(log(( pi * dns_s * r_dns_a(kz) / qs(kz)) ) * puiss3)) ) * puiss2)
+r_lmd_s_p2s(kz) = exp(log( dns_a(kz) * qs(kz) / (pi * dns_s * pn0s(kz))) * 0.25d0 * p2s)
+brdlg = 1.0 / ( pi * dns_g )
+r_lmd_g_p2g(kz) = exp(log(tmp_r_lmd_g) * one_third * p2g)
+brdlg = sqrt( sqrt(1.0 / (pi * dns_g) ) )
+r_lmd_g_p2g(kz) = exp(log(dns_a(kz) * qg(kz) / ( pi * dns_g * pn0g_const )) * 0.25d0 * p2g)
+r_lmd_i_p2i = exp(log(dns_a(kz) * qci(kz) * brdli) * 0.25d0 * p2i)
+braci = 6.0_r_size / (pi * dnsci)
+if ( qnci(kz) > 1.0_r_size .and. qci(kz) > qmin ) then
+tv_i(kz) = exp( log( dns_a(kz)*qci(kz)/qnci(kz)*braci ) * one_third ) * 700.0_r_size * exp( log( sqrt_dns0_rdnsa(kz) ) * 0.7_r_size )
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=302, combined=277, changed=17, unchanged=260, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=16)
+========== pbl_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_const.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=26, combined=26, changed=5, unchanged=21, subroutine_definitions=0, calls=3, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== pbl_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_grid.H90
+kz = 1
+dz_f(kz) = z_h(kz)
+dz_f(kz) = z_h(kz) - z_h(kz - 1)
+dz_h = z_f(kz + 1) - z_f(kz)
+rdz_f(kz) = 1.0 / dz_f(kz)
+rdz_h(kz) = 1.0 / dz_h
+f2h_m(kz) = (z_f(kz + 1) - z_h(kz)) * rdz_h(kz)
+f2h_p(kz) = 1.0 - f2h_m(kz)
+h2f_m(kz) = (z_h(kz) - z_f(kz)) * rdz_f(kz)
+h2f_p(kz) = 1.0 - h2f_m(kz)
+kz = nz
+rdz_f(kz) = 0.5 / (z_f(kz) - z_h(kz - 1))
+kz = 1
+dz_f(kz) = z_h(kz)
+dz_f(kz) = z_h(kz) - z_h(kz - 1)
+dz_h = z_f(kz + 1) - z_f(kz)
+rdz_f(kz) = 1.0 / dz_f(kz)
+rdz_h(kz) = 1.0 / dz_h
+f2h_m(kz) = (z_f(kz + 1) - z_h(kz)) * rdz_h(kz)
+f2h_p(kz) = 1.0 - f2h_m(kz)
+h2f_m(kz) = (z_h(kz) - z_f(kz)) * rdz_f(kz)
+h2f_p(kz) = 1.0 - h2f_m(kz)
+kz = nz
+rdz_f(kz) = 0.5 / (z_f(kz) - z_h(kz - 1))
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=55, combined=54, changed=18, unchanged=36, subroutine_definitions=1, calls=2, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=12)
+========== pbl_gsmym =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_gsmym.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_gsmym.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=642, combined=592, changed=1, unchanged=591, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== pbl_implic =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_implic.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_implic.H90
+public :: pbl_implic_solve
+do kz = nz, 2, -1
+aa(kz - 1) = aa(kz - 1) * bb(kz)
+bb(kz - 1) = bb(kz - 1) * bb(kz) - aa(kz) * cc(kz - 1)
+qq(kz - 1) = qq(kz - 1) * bb(kz) - qq(kz) * cc(kz - 1)
+qq(1) = qq(1) / bb(1)
+do kz = 2, nz
+qq(kz) = (qq(kz) - aa(kz) * qq(kz - 1)) / bb(kz)
+public :: pbl_implic_solve
+do kz = nz, 2, -1
+aa(kz - 1) = aa(kz - 1) * bb(kz)
+bb(kz - 1) = bb(kz - 1) * bb(kz) - aa(kz) * cc(kz - 1)
+qq(kz - 1) = qq(kz - 1) * bb(kz) - qq(kz) * cc(kz - 1)
+qq(1) = qq(1) / bb(1)
+do kz = 2, nz
+qq(kz) = (qq(kz) - aa(kz) * qq(kz - 1)) / bb(kz)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=26, combined=26, changed=9, unchanged=17, subroutine_definitions=1, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=8)
+========== pbl_mym =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym.H90
+gm(kz) =   dvdzm(kz) * dvdzm(kz)
+gh(kz) = - dbdz(kz)
+ri = - gh(kz) / max( gm(kz), 1.0e-10_r_size )
+rf = min(ri1 * (ri + ri2 - sqrt(ri ** 2 - ri3 * ri + ri4)), rfc )
+sh(kz) = shc * (rfc - rf) / (1.0 - rf)
+sm(kz) = smc * (rf1 - rf) / (rf2 - rf) * sh(kz)
+elt = 0.0
+vsc = 0.0
+do kz = 1, nz - 1
+qdz = qkw(kz) * dz_f(kz)
+elt = elt + qdz * z_f(kz)
+vsc = vsc + qdz
+elt = max(my_alpha1 * elt / (vsc + 1.e-10_r_size), elt_min)
+vsc = (elt * max(fb_surf, 0.0_r_size)) ** one_third
+if (dbdz(kz) > 0.0) then
+rbv = 1.0 / sqrt(dbdz(kz))
+elb = my_alpha2 * qkw(kz) * rbv * (1.0 + alp32 * sqrt(vsc * rbv / elt))
+elb = 1.0e10
+if (z_f(kz) > my_z_limit_elb) then
+elb = min(elb, dz_f(min(kz, nz - 1)))
+zeta = z_f(kz) * r_mosurf
+if (zeta > 0.0) then
+els = vkman * z_f(kz) / (1.0 + cns * min(zeta, zmax))
+els = vkman * z_f(kz) * min((1.0_r_size - my_alpha4 * zeta) ** 0.2_r_size, 2.0_r_size)
+el(kz) = elb / ( elb / elt + elb / els + 1.0)
+qkw(kz) = sqrt(max(qke(kz), 1.e-20_r_size))
+ptv = pt(kz) * (1.0 + c_virtual * qv(kz) - qc(kz) - qci(kz))
+gtr(kz) = grav / ptv
+r_exner = (pref / prs(kz)) ** rdvcp
+temp(kz) = pt(kz) / r_exner
+tl(kz) = pt(kz) - r_cp * r_exner * (hlatnt * qc(kz) + hls * qci(kz))
+qw(kz) = qv(kz) + qc(kz) + qci(kz)
+do kz = 1, nz - 1
+tl_h(kz) = f2h_m(kz) * tl(kz) + f2h_p(kz) * tl(kz + 1)
+qw_h(kz) = f2h_m(kz) * qw(kz) + f2h_p(kz) * qw(kz + 1)
+u_h(kz) = f2h_m(kz) * uvel(kz) + f2h_p(kz) * uvel(kz + 1)
+v_h(kz) = f2h_m(kz) * vvel(kz) + f2h_p(kz) * vvel(kz + 1)
+kz = 1
+dtldz(kz) = (tl(kz + 1) - tl(kz)) * rdz_h(kz)
+dqwdz(kz) = (qw(kz + 1) - qw(kz)) * rdz_h(kz)
+dudz(kz) = u_h(kz) * rdz_f(kz)
+dvdz(kz) = v_h(kz) * rdz_f(kz)
+do kz = 2, nz - 1
+dtldz(kz) = (tl_h(kz) - tl_h(kz - 1)) * rdz_f(kz)
+dqwdz(kz) = (qw_h(kz) - qw_h(kz - 1)) * rdz_f(kz)
+dudz(kz) = (u_h(kz) - u_h(kz - 1)) * rdz_f(kz)
+dvdz(kz) = (v_h(kz) - v_h(kz - 1)) * rdz_f(kz)
+kz = nz
+dtldz(kz) = dtldz(kz - 1)
+dqwdz(kz) = dqwdz(kz - 1)
+dudz(kz) = dudz(kz - 1)
+dvdz(kz) = dvdz(kz - 1)
+zhpar = 3000.0_r_size
+gm(kz) =   dvdzm(kz) * dvdzm(kz)
+gh(kz) = - dbdz(kz)
+ri = - gh(kz) / max( gm(kz), 1.0e-10_r_size )
+rf = min(ri1 * (ri + ri2 - sqrt(ri ** 2 - ri3 * ri + ri4)), rfc )
+sh(kz) = shc * (rfc - rf) / (1.0 - rf)
+sm(kz) = smc * (rf1 - rf) / (rf2 - rf) * sh(kz)
+elt = 0.0
+vsc = 0.0
+do kz = 1, nz - 1
+qdz = qkw(kz) * dz_f(kz)
+elt = elt + qdz * z_f(kz)
+vsc = vsc + qdz
+elt = max(my_alpha1 * elt / (vsc + 1.e-10_r_size), elt_min)
+vsc = (elt * max(fb_surf, 0.0_r_size)) ** one_third
+if (dbdz(kz) > 0.0) then
+rbv = 1.0 / sqrt(dbdz(kz))
+elb = my_alpha2 * qkw(kz) * rbv * (1.0 + alp32 * sqrt(vsc * rbv / elt))
+elb = 1.0e10
+if (z_f(kz) > my_z_limit_elb) then
+elb = min(elb, dz_f(min(kz, nz - 1)))
+zeta = z_f(kz) * r_mosurf
+if (zeta > 0.0) then
+els = vkman * z_f(kz) / (1.0 + cns * min(zeta, zmax))
+els = vkman * z_f(kz) * min((1.0_r_size - my_alpha4 * zeta) ** 0.2_r_size, 2.0_r_size)
+el(kz) = elb / ( elb / elt + elb / els + 1.0)
+qkw(kz) = sqrt(max(qke(kz), 1.e-20_r_size))
+ptv = pt(kz) * (1.0 + c_virtual * qv(kz) - qc(kz) - qci(kz))
+gtr(kz) = grav / ptv
+r_exner = (pref / prs(kz)) ** rdvcp
+temp(kz) = pt(kz) / r_exner
+tl(kz) = pt(kz) - r_cp * r_exner * (hlatnt * qc(kz) + hls * qci(kz))
+qw(kz) = qv(kz) + qc(kz) + qci(kz)
+do kz = 1, nz - 1
+tl_h(kz) = f2h_m(kz) * tl(kz) + f2h_p(kz) * tl(kz + 1)
+qw_h(kz) = f2h_m(kz) * qw(kz) + f2h_p(kz) * qw(kz + 1)
+u_h(kz) = f2h_m(kz) * uvel(kz) + f2h_p(kz) * uvel(kz + 1)
+v_h(kz) = f2h_m(kz) * vvel(kz) + f2h_p(kz) * vvel(kz + 1)
+kz = 1
+dtldz(kz) = (tl(kz + 1) - tl(kz)) * rdz_h(kz)
+dqwdz(kz) = (qw(kz + 1) - qw(kz)) * rdz_h(kz)
+dudz(kz) = u_h(kz) * rdz_f(kz)
+dvdz(kz) = v_h(kz) * rdz_f(kz)
+do kz = 2, nz - 1
+dtldz(kz) = (tl_h(kz) - tl_h(kz - 1)) * rdz_f(kz)
+dqwdz(kz) = (qw_h(kz) - qw_h(kz - 1)) * rdz_f(kz)
+dudz(kz) = (u_h(kz) - u_h(kz - 1)) * rdz_f(kz)
+dvdz(kz) = (v_h(kz) - v_h(kz - 1)) * rdz_f(kz)
+kz = nz
+dtldz(kz) = dtldz(kz - 1)
+dqwdz(kz) = dqwdz(kz - 1)
+dudz(kz) = dudz(kz - 1)
+dvdz(kz) = dvdz(kz - 1)
+zhpar = 3000.0_r_size
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=886, combined=787, changed=91, unchanged=696, subroutine_definitions=12, calls=13, imports=8, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=5, radiation=0, storage_order=0, data_spec=0, other=53)
+========== pbl_mym_condensation =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_condensation.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_condensation.h90
+public :: pbl_mym_condensation_run
+logical :: l_first = .true.
+if (l_first) then
+l_first = .false.
+vt (kz) = qt - rac * bet(kz)
+vq (kz) = c_virtual * pt_tmp + rac
+integer(4)             :: i
+if (first) then
+first = .false.
+x02 = x(i) * x(i)
+y(i) = x(i) * ( + c01 - c03 * x02 + c05 * x04 - c07 * x06 + c09 * x08 - c11 * x10 + c13 * x12)
+if(x(i) > 0) then
+y(i) = min(y(i), erfmax)
+y(i) = max(y(i), -erfmax)
+public :: pbl_mym_condensation_run
+logical :: l_first = .true.
+if (l_first) then
+l_first = .false.
+vt (kz) = qt - rac * bet(kz)
+vq (kz) = c_virtual * pt_tmp + rac
+integer(4)             :: i
+if (first) then
+first = .false.
+x02 = x(i) * x(i)
+y(i) = x(i) * ( + c01 - c03 * x02 + c05 * x04 - c07 * x06 + c09 * x08 - c11 * x10 + c13 * x12)
+if(x(i) > 0) then
+y(i) = min(y(i), erfmax)
+y(i) = max(y(i), -erfmax)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=197, combined=176, changed=29, unchanged=147, subroutine_definitions=2, calls=1, imports=2, data_definitions=0, save=9, parameter=0, openmp=0, style=0, parallel_loops=1, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=14)
+========== pbl_mym_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_const.h90
+qke_max = 500.0
+qke_max = 500.0
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=101, combined=100, changed=2, unchanged=98, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=1, other=1)
+========== pbl_mym_flux =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_flux.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_flux.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=97, combined=89, changed=2, unchanged=87, subroutine_definitions=2, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_mym_initialize =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_initialize.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_initialize.f90
+dbdz(kz) = max(gtr(kz) * (vt * dtldz(kz) + vq * dqwdz(kz)), my_ini_dbdz_min)
+if (bb_qke(kz) == 0.0_r_size .or. pdk(kz) <= 0.0e0_r_size) then
+qke(kz) = min(max(qke(kz), 1.0e-20_r_size), qke_max)
+dbdz(kz) = max(gtr(kz) * (vt * dtldz(kz) + vq * dqwdz(kz)), my_ini_dbdz_min)
+if (bb_qke(kz) == 0.0_r_size .or. pdk(kz) <= 0.0e0_r_size) then
+qke(kz) = min(max(qke(kz), 1.0e-20_r_size), qke_max)
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=220, combined=206, changed=19, unchanged=187, subroutine_definitions=0, calls=10, imports=6, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=3)
+========== pbl_mym_main =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_main.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_main.h90
+public :: pbl_mym_main_level2
+if (present(l_e) .and. present(tke_dis) .and. present(tsq_dis) ) then
+end if
+if (present(l_e) .and. present(tke_dis) .and. present(tsq_dis) ) then
+end if
+qke(kz) = min(max(qke(kz), 1.e-20_r_size), qke_max)
+integer(4)   :: kz
+ql = sqrt(qke(kz)) / el(kz)
+l_e(kz)     = el(kz)
+tke_dis(kz) = qke(kz) * ql / b1
+tsq_dis(kz) = tsq(kz) * ql / b2
+public :: pbl_mym_main_level2
+if (present(l_e) .and. present(tke_dis) .and. present(tsq_dis) ) then
+end if
+if (present(l_e) .and. present(tke_dis) .and. present(tsq_dis) ) then
+end if
+qke(kz) = min(max(qke(kz), 1.e-20_r_size), qke_max)
+integer(4)   :: kz
+ql = sqrt(qke(kz)) / el(kz)
+l_e(kz)     = el(kz)
+tke_dis(kz) = qke(kz) * ql / b1
+tsq_dis(kz) = tsq(kz) * ql / b2
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=405, combined=312, changed=57, unchanged=255, subroutine_definitions=4, calls=23, imports=3, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=14, other=11)
+========== pbl_mym_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_option.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=58, combined=50, changed=11, unchanged=39, subroutine_definitions=0, calls=10, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_mym_option_symbol =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_option_symbol.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_option_symbol.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=16, combined=16, changed=0, unchanged=16, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_mym_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_parm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=46, combined=39, changed=0, unchanged=39, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_mym_simeq =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_mym_simeq.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_mym_simeq.H90
+public :: pbl_mym_diff_matcoef
+integer :: kz
+tsq_k(1) = qq_tsq_k(1) * r_bbp_tsq_k(1)
+qsq_k(1) = qq_qsq_k(1) * r_bbp_qsq_k(1)
+tsq_k(kz) = (qq_tsq_k(kz) - aap_tsq_k(kz) * tsq_k(kz - 1)) * r_bbp_tsq_k(kz)
+qsq_k(kz) = (qq_qsq_k(kz) - aap_qsq_k(kz) * qsq_k(kz - 1)) * r_bbp_qsq_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - pp2_ct_k(kz) * tsq_k(kz + 2) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - pp2_cq_k(kz) * qsq_k(kz + 2)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - pp2_ct_k(kz) * tsq_k(kz + 2) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - pp2_cq_k(kz) * qsq_k(kz + 2) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - ppp_cq_k(kz) * qsq_k(kz) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+do kz = nz - 1, 1, -1
+cov_k(kz) = cov_k(kz) - ccp_cov_k(kz) * cov_k(kz + 1) * r_bbp_cov_k(kz)
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + pp1_qc_k(kz) * cov_k(kz - 1) + pp2_qc_k(kz) * cov_k(kz - 2)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + pp1_tc_k(kz) * cov_k(kz - 1) + pp2_tc_k(kz) * cov_k(kz - 2)) * r_bbp_tsq_k(kz)
+do kz = nz - 1, 3, -1
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1) + pp1_qc_k(kz) * cov_k(kz - 1) + pp2_qc_k(kz) * cov_k(kz - 2)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1) + pp1_tc_k(kz) * cov_k(kz - 1) + pp2_tc_k(kz) * cov_k(kz - 2)) * r_bbp_tsq_k(kz)
+kz = 2
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1) + pp1_qc_k(kz) * cov_k(kz - 1)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1) + pp1_tc_k(kz) * cov_k(kz - 1)) * r_bbp_tsq_k(kz)
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1)) * r_bbp_tsq_k(kz)
+integer(4), intent(in) :: max_itr
+y_tsq_k(kz) =      bb_tsq_k(kz) * x_tsq_k(kz) + cc_tsq_k(kz) * x_tsq_k(kz + 1) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) =      bb_qsq_k(kz) * x_qsq_k(kz) + cc_qsq_k(kz) * x_qsq_k(kz + 1) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) =     bb_cov_k(kz) * x_cov_k(kz) + cc_cov_k(kz) * x_cov_k(kz + 1) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+y_tsq_k(kz) = aa_tsq_k(kz) * x_tsq_k(kz - 1) + bb_tsq_k(kz) * x_tsq_k(kz) + cc_tsq_k(kz) * x_tsq_k(kz + 1) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) = aa_qsq_k(kz) * x_qsq_k(kz - 1) + bb_qsq_k(kz) * x_qsq_k(kz) + cc_qsq_k(kz) * x_qsq_k(kz + 1) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) = aa_cov_k(kz) * x_cov_k(kz - 1) + bb_cov_k(kz) * x_cov_k(kz) + cc_cov_k(kz) * x_cov_k(kz + 1) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+y_tsq_k(kz) = aa_tsq_k(kz) * x_tsq_k(kz - 1) + bb_tsq_k(kz) * x_tsq_k(kz) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) = aa_qsq_k(kz) * x_qsq_k(kz - 1) + bb_qsq_k(kz) * x_qsq_k(kz) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) = aa_cov_k(kz) * x_cov_k(kz - 1) + bb_cov_k(kz) * x_cov_k(kz) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+km_p1 = coef * ( f2h_p(kz) * dfm(kz + 1) + f2h_m(kz) * dfm(kz))
+cc(kz) = km_p1 * rdz_f(kz) * rdz_h(kz)
+aa(kz) = 0.0
+bb(kz) = - aa(kz) - cc(kz)
+km_p1 = coef * ( f2h_p(kz) * dfm(kz + 1) + f2h_m(kz) * dfm(kz))
+km_m1 = coef * ( f2h_p(kz - 1) * dfm(kz) + f2h_m(kz - 1) * dfm(kz - 1))
+cc(kz) = km_p1 * rdz_f(kz) * rdz_h(kz)
+aa(kz) = km_m1 * rdz_f(kz) * rdz_h(kz - 1)
+km_m1 = coef * ( f2h_p(kz - 1) * dfm(kz) + f2h_m(kz - 1) * dfm(kz - 1))
+km_p1 = 0.0
+cc(kz) = 0.0
+aa(kz) = km_m1 * rdz_f(kz) * rdz_h(kz - 1)
+public :: pbl_mym_diff_matcoef
+integer :: kz
+tsq_k(1) = qq_tsq_k(1) * r_bbp_tsq_k(1)
+qsq_k(1) = qq_qsq_k(1) * r_bbp_qsq_k(1)
+tsq_k(kz) = (qq_tsq_k(kz) - aap_tsq_k(kz) * tsq_k(kz - 1)) * r_bbp_tsq_k(kz)
+qsq_k(kz) = (qq_qsq_k(kz) - aap_qsq_k(kz) * qsq_k(kz - 1)) * r_bbp_qsq_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - pp2_ct_k(kz) * tsq_k(kz + 2) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - pp2_cq_k(kz) * qsq_k(kz + 2)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - pp2_ct_k(kz) * tsq_k(kz + 2) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - pp2_cq_k(kz) * qsq_k(kz + 2) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - pp1_ct_k(kz) * tsq_k(kz + 1) - ppp_cq_k(kz) * qsq_k(kz) - pp1_cq_k(kz) * qsq_k(kz + 1) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+cov_k(kz) = (qq_cov_k(kz) - ppp_ct_k(kz) * tsq_k(kz) - ppp_cq_k(kz) * qsq_k(kz) - aap_cov_k(kz) * cov_k(kz - 1)) * r_bbp_cov_k(kz)
+do kz = nz - 1, 1, -1
+cov_k(kz) = cov_k(kz) - ccp_cov_k(kz) * cov_k(kz + 1) * r_bbp_cov_k(kz)
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + pp1_qc_k(kz) * cov_k(kz - 1) + pp2_qc_k(kz) * cov_k(kz - 2)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + pp1_tc_k(kz) * cov_k(kz - 1) + pp2_tc_k(kz) * cov_k(kz - 2)) * r_bbp_tsq_k(kz)
+do kz = nz - 1, 3, -1
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1) + pp1_qc_k(kz) * cov_k(kz - 1) + pp2_qc_k(kz) * cov_k(kz - 2)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1) + pp1_tc_k(kz) * cov_k(kz - 1) + pp2_tc_k(kz) * cov_k(kz - 2)) * r_bbp_tsq_k(kz)
+kz = 2
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1) + pp1_qc_k(kz) * cov_k(kz - 1)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1) + pp1_tc_k(kz) * cov_k(kz - 1)) * r_bbp_tsq_k(kz)
+qsq_k(kz) = qsq_k(kz) - (ppp_qc_k(kz) * cov_k(kz) + ccp_qsq_k(kz) * qsq_k(kz + 1)) * r_bbp_qsq_k(kz)
+tsq_k(kz) = tsq_k(kz) - (ppp_tc_k(kz) * cov_k(kz) + ccp_tsq_k(kz) * tsq_k(kz + 1)) * r_bbp_tsq_k(kz)
+integer(4), intent(in) :: max_itr
+y_tsq_k(kz) =      bb_tsq_k(kz) * x_tsq_k(kz) + cc_tsq_k(kz) * x_tsq_k(kz + 1) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) =      bb_qsq_k(kz) * x_qsq_k(kz) + cc_qsq_k(kz) * x_qsq_k(kz + 1) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) =     bb_cov_k(kz) * x_cov_k(kz) + cc_cov_k(kz) * x_cov_k(kz + 1) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+y_tsq_k(kz) = aa_tsq_k(kz) * x_tsq_k(kz - 1) + bb_tsq_k(kz) * x_tsq_k(kz) + cc_tsq_k(kz) * x_tsq_k(kz + 1) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) = aa_qsq_k(kz) * x_qsq_k(kz - 1) + bb_qsq_k(kz) * x_qsq_k(kz) + cc_qsq_k(kz) * x_qsq_k(kz + 1) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) = aa_cov_k(kz) * x_cov_k(kz - 1) + bb_cov_k(kz) * x_cov_k(kz) + cc_cov_k(kz) * x_cov_k(kz + 1) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+y_tsq_k(kz) = aa_tsq_k(kz) * x_tsq_k(kz - 1) + bb_tsq_k(kz) * x_tsq_k(kz) + pp_tc_k(kz) * x_cov_k(kz)
+y_qsq_k(kz) = aa_qsq_k(kz) * x_qsq_k(kz - 1) + bb_qsq_k(kz) * x_qsq_k(kz) + pp_qc_k(kz) * x_cov_k(kz)
+y_cov_k(kz) = aa_cov_k(kz) * x_cov_k(kz - 1) + bb_cov_k(kz) * x_cov_k(kz) + pp_ct_k(kz) * x_tsq_k(kz) + pp_cq_k(kz) * x_qsq_k(kz)
+km_p1 = coef * ( f2h_p(kz) * dfm(kz + 1) + f2h_m(kz) * dfm(kz))
+cc(kz) = km_p1 * rdz_f(kz) * rdz_h(kz)
+aa(kz) = 0.0
+bb(kz) = - aa(kz) - cc(kz)
+km_p1 = coef * ( f2h_p(kz) * dfm(kz + 1) + f2h_m(kz) * dfm(kz))
+km_m1 = coef * ( f2h_p(kz - 1) * dfm(kz) + f2h_m(kz - 1) * dfm(kz - 1))
+cc(kz) = km_p1 * rdz_f(kz) * rdz_h(kz)
+aa(kz) = km_m1 * rdz_f(kz) * rdz_h(kz - 1)
+km_m1 = coef * ( f2h_p(kz - 1) * dfm(kz) + f2h_m(kz - 1) * dfm(kz - 1))
+km_p1 = 0.0
+cc(kz) = 0.0
+aa(kz) = km_m1 * rdz_f(kz) * rdz_h(kz - 1)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1020, combined=742, changed=89, unchanged=653, subroutine_definitions=9, calls=11, imports=1, data_definitions=0, save=0, parameter=2, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=20, other=44)
+========== pbl_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_parm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=19, combined=19, changed=3, unchanged=16, subroutine_definitions=0, calls=2, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_public =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_public.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_public.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=24, combined=24, changed=0, unchanged=24, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_shcu =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_shcu.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_shcu.h90
+do while ( z_uv(k_par) < z_surf .and. thvl(k_par+1) <= thvl(k_par) )
+if (vap_press > 0.0_r_size) then
+if ( k-1 > ktpar + 2 .and. ( denv_bydz <= dpar_bydz .or. z_uv(k) > zhpar+min(1000.0_r_size, 0.5_r_size*zhpar) )) then
+if ( topbl == 0 .and. k > k_par .and. (  ( thv_par(k)-THv(k) <= - thv_pert) .or. ( above_lcl .and. (denv_bydz > 1.25_r_size*dpar_bydz) ) )) then
+do while ( z_uv(k_par) < z_surf .and. thvl(k_par+1) <= thvl(k_par) )
+if (vap_press > 0.0_r_size) then
+if ( k-1 > ktpar + 2 .and. ( denv_bydz <= dpar_bydz .or. z_uv(k) > zhpar+min(1000.0_r_size, 0.5_r_size*zhpar) )) then
+if ( topbl == 0 .and. k > k_par .and. (  ( thv_par(k)-THv(k) <= - thv_pert) .or. ( above_lcl .and. (denv_bydz > 1.25_r_size*dpar_bydz) ) )) then
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=505, combined=437, changed=21, unchanged=416, subroutine_definitions=1, calls=1, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=13, radiation=0, storage_order=0, data_spec=2, other=4)
+========== pbl_tend_solve =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_tend_solve.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_tend_solve.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=293, combined=267, changed=4, unchanged=263, subroutine_definitions=4, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_tend_solve_scalar =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl/pbl_tend_solve_scalar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl/pbl_tend_solve_scalar.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=127, combined=121, changed=1, unchanged=120, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_coupler =============
+refpath: branches/reference/asuca-kij/Src/Physics/pbl_coupler/pbl_coupler.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/pbl_coupler/pbl_coupler.H90
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_land) then
+else
+tau_coef(nn, lt) = 0.0_r_size
+ftl_coef(nn, lt) = 0.0_r_size
+fqw_coef(nn, lt) = 0.0_r_size
+tg0_coef(nn, lt) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_sea) then
+else
+else
+tau_coef(nn, lt) = 0.0_r_size
+ftl_coef(nn, lt) = 0.0_r_size
+fqw_coef(nn, lt) = 0.0_r_size
+tg0_coef(nn, lt) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_land) then
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+tend_wg(0) = 0.0_r_size
+tend_wg(1) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_ice) then
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_land) then
+else
+tau_coef(nn, lt) = 0.0_r_size
+ftl_coef(nn, lt) = 0.0_r_size
+fqw_coef(nn, lt) = 0.0_r_size
+tg0_coef(nn, lt) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_sea) then
+else
+else
+tau_coef(nn, lt) = 0.0_r_size
+ftl_coef(nn, lt) = 0.0_r_size
+fqw_coef(nn, lt) = 0.0_r_size
+tg0_coef(nn, lt) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_land) then
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+tend_wg(0) = 0.0_r_size
+tend_wg(1) = 0.0_r_size
+if (tlcvr(lt) > 0.0_r_size) then
+if (skind(lt) == kind_ice) then
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+else
+do kz = 0, ngm
+tend_tg(kz, lt) = 0.0_r_size
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1188, combined=906, changed=132, unchanged=774, subroutine_definitions=3, calls=26, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=73, radiation=0, storage_order=0, data_spec=0, other=30)
+========== rad_aer =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_aer.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_aer.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=678, combined=539, changed=14, unchanged=525, subroutine_definitions=3, calls=0, imports=4, data_definitions=0, save=0, parameter=0, openmp=0, style=4, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=3, storage_order=0, data_spec=0, other=0)
+========== rad_albed =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_albed.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_albed.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=42, combined=41, changed=2, unchanged=39, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=2, storage_order=0, data_spec=0, other=0)
+========== rad_bnd_tbl =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_bnd_tbl.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_bnd_tbl.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=34, combined=34, changed=5, unchanged=29, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=4, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=1, storage_order=0, data_spec=0, other=0)
+========== rad_cld =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_cld.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_cld.h90
+private
+private
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=492, combined=443, changed=25, unchanged=418, subroutine_definitions=6, calls=5, imports=5, data_definitions=3, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=5, storage_order=0, data_spec=0, other=1)
+========== rad_comm =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_comm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_comm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=114, combined=110, changed=22, unchanged=88, subroutine_definitions=4, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=1, device_data_init=0, implementation_scheme=0, commented=0, radiation=15, storage_order=0, data_spec=0, other=0)
+========== rad_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_const.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=33, combined=33, changed=11, unchanged=22, subroutine_definitions=0, calls=7, imports=1, data_definitions=0, save=0, parameter=3, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_grid.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=48, combined=48, changed=7, unchanged=41, subroutine_definitions=1, calls=2, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=2, storage_order=0, data_spec=0, other=0)
+========== rad_jma =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_jma0507.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_jma.h90
+module rad_jma0507
+end module rad_jma0507
+module rad_jma0507
+end module rad_jma0507
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=328, combined=281, changed=34, unchanged=247, subroutine_definitions=5, calls=9, imports=7, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=8, storage_order=0, data_spec=0, other=2)
+========== rad_lw =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_lw.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_lw.H90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=2181, combined=1906, changed=897, unchanged=1009, subroutine_definitions=13, calls=18, imports=7, data_definitions=53, save=9, parameter=9, openmp=0, style=9, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=779, storage_order=0, data_spec=0, other=0)
+========== rad_moncld =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_moncld.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_moncld.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=157, combined=149, changed=2, unchanged=147, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_option.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=51, combined=48, changed=10, unchanged=38, subroutine_definitions=0, calls=9, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_option_symbol =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_option_symbol.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_option_symbol.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=20, combined=20, changed=0, unchanged=20, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_overlp =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_overlp.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_overlp.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=288, combined=263, changed=18, unchanged=245, subroutine_definitions=4, calls=0, imports=2, data_definitions=5, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=7, storage_order=0, data_spec=0, other=0)
+========== rad_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_parm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=105, combined=98, changed=21, unchanged=77, subroutine_definitions=0, calls=20, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_radius =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_radius.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_radius.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=207, combined=203, changed=36, unchanged=167, subroutine_definitions=11, calls=11, imports=12, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=1, storage_order=0, data_spec=0, other=0)
+========== rad_sw =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_sw.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_sw.H90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=701, combined=589, changed=271, unchanged=318, subroutine_definitions=3, calls=3, imports=3, data_definitions=18, save=7, parameter=3, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=233, storage_order=0, data_spec=0, other=0)
+========== rad_zenith =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad/rad_zenith.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad/rad_zenith.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=148, combined=136, changed=8, unchanged=128, subroutine_definitions=3, calls=2, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=1, storage_order=0, data_spec=0, other=0)
+========== rad_aer_2d =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad_input_sample/rad_aer_2d.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad_input_sample/rad_aer_2d.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=257, combined=247, changed=9, unchanged=238, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=9, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rad_ozn_3d =============
+refpath: branches/reference/asuca-kij/Src/Physics/rad_input_sample/rad_ozn_3d.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/rad_input_sample/rad_ozn_3d.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=471, combined=410, changed=11, unchanged=399, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=11, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_albedo =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_albedo.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_albedo.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=107, combined=94, changed=3, unchanged=91, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_const.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=15, combined=15, changed=1, unchanged=14, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_conv =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_conv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_conv.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=48, combined=43, changed=2, unchanged=41, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_flx =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_flx.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_flx.h90
+public :: sf_slab_flx_diag_tile_run_tlad
+public :: sf_slab_flx_diag_tile_run_tlad
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=2404, combined=1769, changed=173, unchanged=1596, subroutine_definitions=10, calls=49, imports=9, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=104, radiation=0, storage_order=0, data_spec=0, other=1)
+========== sf_slab_grid =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_grid.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=39, combined=39, changed=1, unchanged=38, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_option =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_option.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_option.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=23, combined=23, changed=1, unchanged=22, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_option_symbol =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_option_symbol.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_option_symbol.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=9, combined=9, changed=0, unchanged=9, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_parm =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_parm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_parm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=50, combined=47, changed=1, unchanged=46, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_phys_const =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_phys_const.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_phys_const.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=14, combined=14, changed=0, unchanged=14, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_qsatg =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_qsatg.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_qsatg.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=291, combined=240, changed=3, unchanged=237, subroutine_definitions=1, calls=2, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_skind =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_skind.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_skind.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=7, combined=7, changed=0, unchanged=7, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_stile =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_stile.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_stile.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=21, combined=21, changed=1, unchanged=20, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_tgf_adj =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_tgf_adj.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_tgf_adj.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=12, combined=12, changed=0, unchanged=12, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== sf_slab_tgf_tend_solve =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_tgf_tend_solve.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_tgf_tend_solve.h90
+ppg(kz) = aag(kz) * tg(kz - 1) + bbg(kz) * tg(kz) + ccg(kz) * tg(kz + 1)
+ppg(kz) = aag(kz) * tg(kz - 1) + bbg(kz) * tg(kz) + ccg(kz) * tg(kz + 1)
+tend_tg(0) = tend_tg0
+tend_tg(kz) = (ppg(kz) - aag(kz) * tend_tg(kz - 1)) / bbg(kz)
+tend_tg(ngm) = 0.0_r_size
+ppg(kz) = aag(kz) * tg(kz - 1) + bbg(kz) * tg(kz) + ccg(kz) * tg(kz + 1)
+ppg(kz) = aag(kz) * tg(kz - 1) + bbg(kz) * tg(kz) + ccg(kz) * tg(kz + 1)
+tend_tg(0) = tend_tg0
+tend_tg(kz) = (ppg(kz) - aag(kz) * tend_tg(kz - 1)) / bbg(kz)
+tend_tg(ngm) = 0.0_r_size
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=93, combined=89, changed=10, unchanged=79, subroutine_definitions=3, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=2, other=5)
+========== sf_slab_wet =============
+refpath: branches/reference/asuca-kij/Src/Physics/sf_slab/sf_slab_wet.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/sf_slab/sf_slab_wet.h90
+select case(sw_tend_wg)
+case(tend_wg_deardorff1978)
+case(tend_wg_noilhan1996)
+select case(sw_tend_wg)
+case(tend_wg_deardorff1978)
+if      (wg(0) >= 0.75_r_size * w_max) then
+c_1 = 0.5_r_size
+else if (wg(0) > 0.15_r_size * w_max) then
+c_1 = 14.0_r_size - 22.5_r_size * (wg(0) / w_max - 0.15_r_size)
+c_1 = 14.0_r_size
+c_2 = 0.9_r_size
+wg_eq = wg(1)
+dweq_dw2 = 1.0_r_size
+case(tend_wg_noilhan1996)
+if ( .not.present( beta ) ) then
+if ( .not.( present( wg07  ) .and. present( beta7 ) ) ) then
+if ( .not.( present( wg07  ) .and. present( beta7 ) ) ) then
+select case(sw_tend_wg)
+case(tend_wg_deardorff1978)
+case(tend_wg_noilhan1996)
+select case(sw_tend_wg)
+case(tend_wg_deardorff1978)
+if      (wg(0) >= 0.75_r_size * w_max) then
+c_1 = 0.5_r_size
+else if (wg(0) > 0.15_r_size * w_max) then
+c_1 = 14.0_r_size - 22.5_r_size * (wg(0) / w_max - 0.15_r_size)
+c_1 = 14.0_r_size
+c_2 = 0.9_r_size
+wg_eq = wg(1)
+dweq_dw2 = 1.0_r_size
+case(tend_wg_noilhan1996)
+if ( .not.present( beta ) ) then
+if ( .not.( present( wg07  ) .and. present( beta7 ) ) ) then
+if ( .not.( present( wg07  ) .and. present( beta7 ) ) ) then
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=607, combined=544, changed=92, unchanged=452, subroutine_definitions=6, calls=3, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=64, radiation=0, storage_order=0, data_spec=1, other=17)
+========== gabls3_forcing =============
+refpath: branches/reference/asuca-kij/Src/Physics/tests/gabls3/gabls3_forcing.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Physics/tests/gabls3/gabls3_forcing.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=332, combined=301, changed=3, unchanged=298, subroutine_definitions=3, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== cumulus =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/cumulus.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/cumulus.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=13, combined=13, changed=3, unchanged=10, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== func =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/func.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/func.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=105, combined=97, changed=3, unchanged=94, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/mp.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/mp.h90
+endsubroutine mp_run
+endsubroutine mp_run
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=42, combined=40, changed=7, unchanged=33, subroutine_definitions=0, calls=1, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=1)
+========== mp_const_asuca =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/mp_const_asuca.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/mp_const_asuca.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=32, combined=32, changed=1, unchanged=31, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_fallvel =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/mp_fallvel.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/mp_fallvel.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=92, combined=89, changed=7, unchanged=82, subroutine_definitions=3, calls=0, imports=3, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_vars =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/mp_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/mp_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=6, combined=6, changed=1, unchanged=5, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mp_warmrain =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/mp_warmrain.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/mp_warmrain.h90
+if (qc(k,i,j) > 1E-19) then
+if (qc(k,i,j) > 1E-19) then
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=187, combined=159, changed=10, unchanged=149, subroutine_definitions=1, calls=0, imports=2, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=2, other=1)
+========== pbl =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pbl.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pbl.h90
+integer(4) :: i, j, k, n
+eddykm(k,i,j)    = 0.0_rp
+eddykh(k,i,j)    = 0.0_rp
+prandtl_t(k,i,j) = 0.0_rp
+l_mix(k,i,j)     = 0.0_rp
+h_pbl(i,j)       = 0.0_rp
+do k = nz_mn, nz_mx
+rqke(k,i,j) = ( dens_ref_f(k,i,j) + dens_ptb(k,i,j) ) * qa(k,i,j,id_qke)
+tend_rqke_v(k,i,j) = 0.0_rp
+tend_rqke_v(k,i,j) = 2.0_rp * tend_rqke_v(k,i,j) * rjd_pf(k,i,j)
+a1 = ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) ) * eddykm(1,i,j) * dzidz_pf(1,i,j)
+a2 = ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) ) * eddykm(2,i,j) * dzidz_pf(2,i,j)
+e1 = ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) ) * qa(1,i,j,id_qke) * one_third
+e2 = ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) ) * qa(2,i,j,id_qke) * one_third
+do k = 1, nz_w-1
+tend_z(k) = ( a2 * ( vel_z(k+1,i,j) - vel_z(k  ,i,j) ) - e2 - a1 * ( vel_z(k  ,i,j) - vel_z(k-1,i,j) ) + e1 ) * dzidz_ph(k,i,j)
+a1 = a2
+a2 = ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) ) * eddykm(k+1,i,j) * dzidz_pf(k+1,i,j)
+e1 = e2
+e2 = ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) ) * qa(k+1,i,j,id_qke) * one_third
+tend_z(nz_w) = 0.0_rp
+tend_mom_z_v_l(k,i,j) = tend_mom_z_v_l(k,i,j) + tend_z(k) * ( 0.5_rp * ( dens_ref_f(k,i,j) + dens_ref_f(k+1,i,j) ) + 0.5_rp * ( dens_ptb  (k,i,j) + dens_ptb  (k+1,i,j) ) ) * rjd_ph(k,i,j)
+nu1 = dt * dzidz_pf(1,i,j) * eddykm(1,i,j) * ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) )
+nu2 = dt * dzidz_pf(2,i,j) * eddykm(2,i,j) * ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) )
+dens_h = ( 0.5_rp * ( dens_ref_f(1,i,j) + dens_ref_f(2,i,j) ) + 0.5_rp * ( dens_ptb  (1,i,j) + dens_ptb  (2,i,j) ) )
+d(1) = dens_h + ( nu1 + nu2 ) * dzidz_ph(1,i,j)
+u(1) =        -         nu2   * dzidz_ph(2,i,j)
+nu1 = nu2
+do k = 2, nz_w-1
+nu2 = dt * eddykm(k+1,i,j) * dzidz_pf(k+1,i,j) * ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) )
+dens_h = ( 0.5_rp * ( dens_ref_f(k,i,j) + dens_ref_f(k+1,i,j) ) + 0.5_rp * ( dens_ptb  (k,i,j) + dens_ptb  (k+1,i,j) ) )
+l(k) =        -   nu1         * dzidz_ph(k-1,i,j)
+d(k) = dens_h + ( nu1 + nu2 ) * dzidz_ph(k  ,i,j)
+u(k) =        -         nu2   * dzidz_ph(k+1,i,j)
+nu1 = nu2
+u(nz_w-1) = 0.0_rp
+l(nz_w  ) = 0.0_rp
+d(nz_w  ) = 0.5_rp * ( dens_ref_f(nz_w,i,j) + dens_ref_f(nz_w+1,i,j) ) + 0.5_rp * ( dens_ptb  (nz_w,i,j) + dens_ptb  (nz_w+1,i,j) )
+r = dz_pf(1,i,j) / dz_ph(1,i,j)
+nu1 = dzidz_ph(1,i,j) * ( ( 2.0_rp - r ) * eddykm(1,i,j) + r * eddykm(2,i,j) )
+d(1) = 1.0_rp + dt * ( nu1 * dzidz_pf(1,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(1,i,j,id_qke)) / l_mix(1,i,j) )
+u(1) =        - dt *   nu1 * dzidz_pf(2,i,j)
+do k = 2, nz-1
+r = dz_pf(k-1,i,j) / dz_ph(k-1,i,j)
+nu2 = dzidz_ph(k,i,j) * ( ( 2.0_rp - r ) * eddykm(k,i,j) + r * eddykm(k+1,i,j) )
+l(k) = -dt *     nu1         * dzidz_pf(k-1,i,j)
+d(k) = 1.0_rp +  dt * ( ( nu1 + nu2 ) * dzidz_pf(k  ,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(k,i,j,id_qke)) / l_mix(k,i,j) )
+u(k) = -dt *           nu2   * dzidz_pf(k+1,i,j)
+l(nz) =        - dt *   nu2 * dzidz_pf(nz-1,i,j)
+d(nz) = 1.0_rp + dt * ( nu2 * dzidz_pf(nz  ,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(nz,i,j,id_qke)) / l_mix(nz,i,j) )
+integer(4) :: i, j, k
+pt_v_d(i,j) = pt_v_a(i,j)
+h_pbl(i,j) = pz_pf(k-1,i,j) - pz_ph(0,i,j) + ( pz_pf(k,i,j) - pz_ph(0,i,j) - ( pz_pf(k-1,i,j) - pz_ph(0,i,j) ) ) * ( pt_v_a(i,j) - pt_v_d(i,j) ) / ( pt_v(i,j) - pt_v_d(i,j) )
+pt_v_d(i,j) = pt_v(i,j)
+integer(4) :: i, j, k
+integer(4) :: i, j, k
+dvdxi(k,i,j) = v(k,i+1,j) - v(k,i,j)
+dwdxi(k,i,j) = w(k,i+1,j) - w(k,i,j)
+dudyi(k,i,j) = u(k,i,j+1) - u(k,i,j)
+dwdyi(k,i,j) = w(k,i,j+1) - w(k,i,j)
+dudxi(k,i,j) = u(k,i,j) - u(k,i-1,j)
+dvdyi(k,i,j) = v(k,i,j) - v(k,i,j-1)
+dudzi(k,i,j) = u(k+1,i,j) - u(k,i,j)
+dvdzi(k,i,j) = v(k+1,i,j) - v(k,i,j)
+dwdzi(k,i,j) = w(k,i,j) - w(k-1,i,j)
+dudzi(0,i,j) = dudzi(1,i,j)
+dvdzi(0,i,j) = dvdzi(1,i,j)
+integer(4) :: i, j, k, n
+eddykm(k,i,j)    = 0.0_rp
+eddykh(k,i,j)    = 0.0_rp
+prandtl_t(k,i,j) = 0.0_rp
+l_mix(k,i,j)     = 0.0_rp
+h_pbl(i,j)       = 0.0_rp
+do k = nz_mn, nz_mx
+rqke(k,i,j) = ( dens_ref_f(k,i,j) + dens_ptb(k,i,j) ) * qa(k,i,j,id_qke)
+tend_rqke_v(k,i,j) = 0.0_rp
+tend_rqke_v(k,i,j) = 2.0_rp * tend_rqke_v(k,i,j) * rjd_pf(k,i,j)
+a1 = ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) ) * eddykm(1,i,j) * dzidz_pf(1,i,j)
+a2 = ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) ) * eddykm(2,i,j) * dzidz_pf(2,i,j)
+e1 = ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) ) * qa(1,i,j,id_qke) * one_third
+e2 = ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) ) * qa(2,i,j,id_qke) * one_third
+do k = 1, nz_w-1
+tend_z(k) = ( a2 * ( vel_z(k+1,i,j) - vel_z(k  ,i,j) ) - e2 - a1 * ( vel_z(k  ,i,j) - vel_z(k-1,i,j) ) + e1 ) * dzidz_ph(k,i,j)
+a1 = a2
+a2 = ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) ) * eddykm(k+1,i,j) * dzidz_pf(k+1,i,j)
+e1 = e2
+e2 = ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) ) * qa(k+1,i,j,id_qke) * one_third
+tend_z(nz_w) = 0.0_rp
+tend_mom_z_v_l(k,i,j) = tend_mom_z_v_l(k,i,j) + tend_z(k) * ( 0.5_rp * ( dens_ref_f(k,i,j) + dens_ref_f(k+1,i,j) ) + 0.5_rp * ( dens_ptb  (k,i,j) + dens_ptb  (k+1,i,j) ) ) * rjd_ph(k,i,j)
+nu1 = dt * dzidz_pf(1,i,j) * eddykm(1,i,j) * ( dens_ref_f(1,i,j) + dens_ptb(1,i,j) )
+nu2 = dt * dzidz_pf(2,i,j) * eddykm(2,i,j) * ( dens_ref_f(2,i,j) + dens_ptb(2,i,j) )
+dens_h = ( 0.5_rp * ( dens_ref_f(1,i,j) + dens_ref_f(2,i,j) ) + 0.5_rp * ( dens_ptb  (1,i,j) + dens_ptb  (2,i,j) ) )
+d(1) = dens_h + ( nu1 + nu2 ) * dzidz_ph(1,i,j)
+u(1) =        -         nu2   * dzidz_ph(2,i,j)
+nu1 = nu2
+do k = 2, nz_w-1
+nu2 = dt * eddykm(k+1,i,j) * dzidz_pf(k+1,i,j) * ( dens_ref_f(k+1,i,j) + dens_ptb(k+1,i,j) )
+dens_h = ( 0.5_rp * ( dens_ref_f(k,i,j) + dens_ref_f(k+1,i,j) ) + 0.5_rp * ( dens_ptb  (k,i,j) + dens_ptb  (k+1,i,j) ) )
+l(k) =        -   nu1         * dzidz_ph(k-1,i,j)
+d(k) = dens_h + ( nu1 + nu2 ) * dzidz_ph(k  ,i,j)
+u(k) =        -         nu2   * dzidz_ph(k+1,i,j)
+nu1 = nu2
+u(nz_w-1) = 0.0_rp
+l(nz_w  ) = 0.0_rp
+d(nz_w  ) = 0.5_rp * ( dens_ref_f(nz_w,i,j) + dens_ref_f(nz_w+1,i,j) ) + 0.5_rp * ( dens_ptb  (nz_w,i,j) + dens_ptb  (nz_w+1,i,j) )
+r = dz_pf(1,i,j) / dz_ph(1,i,j)
+nu1 = dzidz_ph(1,i,j) * ( ( 2.0_rp - r ) * eddykm(1,i,j) + r * eddykm(2,i,j) )
+d(1) = 1.0_rp + dt * ( nu1 * dzidz_pf(1,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(1,i,j,id_qke)) / l_mix(1,i,j) )
+u(1) =        - dt *   nu1 * dzidz_pf(2,i,j)
+do k = 2, nz-1
+r = dz_pf(k-1,i,j) / dz_ph(k-1,i,j)
+nu2 = dzidz_ph(k,i,j) * ( ( 2.0_rp - r ) * eddykm(k,i,j) + r * eddykm(k+1,i,j) )
+l(k) = -dt *     nu1         * dzidz_pf(k-1,i,j)
+d(k) = 1.0_rp +  dt * ( ( nu1 + nu2 ) * dzidz_pf(k  ,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(k,i,j,id_qke)) / l_mix(k,i,j) )
+u(k) = -dt *           nu2   * dzidz_pf(k+1,i,j)
+l(nz) =        - dt *   nu2 * dzidz_pf(nz-1,i,j)
+d(nz) = 1.0_rp + dt * ( nu2 * dzidz_pf(nz  ,i,j) + c_e_deardorff * sqrt(0.5_rp * qa(nz,i,j,id_qke)) / l_mix(nz,i,j) )
+integer(4) :: i, j, k
+pt_v_d(i,j) = pt_v_a(i,j)
+h_pbl(i,j) = pz_pf(k-1,i,j) - pz_ph(0,i,j) + ( pz_pf(k,i,j) - pz_ph(0,i,j) - ( pz_pf(k-1,i,j) - pz_ph(0,i,j) ) ) * ( pt_v_a(i,j) - pt_v_d(i,j) ) / ( pt_v(i,j) - pt_v_d(i,j) )
+pt_v_d(i,j) = pt_v(i,j)
+integer(4) :: i, j, k
+integer(4) :: i, j, k
+dvdxi(k,i,j) = v(k,i+1,j) - v(k,i,j)
+dwdxi(k,i,j) = w(k,i+1,j) - w(k,i,j)
+dudyi(k,i,j) = u(k,i,j+1) - u(k,i,j)
+dwdyi(k,i,j) = w(k,i,j+1) - w(k,i,j)
+dudxi(k,i,j) = u(k,i,j) - u(k,i-1,j)
+dvdyi(k,i,j) = v(k,i,j) - v(k,i,j-1)
+dudzi(k,i,j) = u(k+1,i,j) - u(k,i,j)
+dvdzi(k,i,j) = v(k+1,i,j) - v(k,i,j)
+dwdzi(k,i,j) = w(k,i,j) - w(k-1,i,j)
+dudzi(0,i,j) = dudzi(1,i,j)
+dvdzi(0,i,j) = dvdzi(1,i,j)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1156, combined=1008, changed=791, unchanged=217, subroutine_definitions=8, calls=9, imports=17, data_definitions=0, save=5, parameter=0, openmp=8, style=20, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=620, radiation=0, storage_order=0, data_spec=37, other=67)
+========== pbl_constvis =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pbl_constvis.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pbl_constvis.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=124, combined=98, changed=59, unchanged=39, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=57, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_mynn =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pbl_mynn.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pbl_mynn.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1267, combined=1110, changed=28, unchanged=1082, subroutine_definitions=1, calls=8, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=18, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pbl_shared =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pbl_shared.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pbl_shared.H90
+integer(4), intent(in), optional :: nz_in
+integer(4)                       :: k
+integer(4)                       :: nz_e
+if (present(nz_in)) then
+nz_e = nz_in
+else
+nz_e = nz
+do k = nz_e-1, 1, -1
+d(k) = d(k) - u(k) / d(k+1) * l(k+1)
+a(k) = a(k) - u(k) / d(k+1) * a(k+1)
+integer(4), intent(in), optional :: nz_in
+integer(4)                       :: k
+integer(4)                       :: nz_e
+if (present(nz_in)) then
+nz_e = nz_in
+else
+nz_e = nz
+a(1) = a(1)/d(1)
+do k = 2, nz_e
+a(k) = ( a(k) - l(k) * a(k-1) ) / d(k)
+rqke_v(k,i,j) = max(rqke_v(k,i,j), qke_min * densrjd )
+rqke_v(k,i,j) = min(max(rqke_v(k,i,j), qke_min * densrjd), qke_max * densrjd)
+rtsq_v(k,i,j) = min(max(rtsq_v(k,i,j), tsq_min * densrjd), tsq_max * densrjd)
+rqsq_v(k,i,j) = min(max(rqsq_v(k,i,j), qsq_min * densrjd), qsq_max * densrjd)
+tq = sqrt(rtsq_v(k,i,j) * rqsq_v(k,i,j))
+if(abs(rcov_v(k,i,j)) > tq) then
+rcov_v(k,i,j) = sign( tq, rcov_v(k,i,j) )
+integer(4), intent(in), optional :: nz_in
+integer(4)                       :: k
+integer(4)                       :: nz_e
+if (present(nz_in)) then
+nz_e = nz_in
+else
+nz_e = nz
+do k = nz_e-1, 1, -1
+d(k) = d(k) - u(k) / d(k+1) * l(k+1)
+a(k) = a(k) - u(k) / d(k+1) * a(k+1)
+integer(4), intent(in), optional :: nz_in
+integer(4)                       :: k
+integer(4)                       :: nz_e
+if (present(nz_in)) then
+nz_e = nz_in
+else
+nz_e = nz
+a(1) = a(1)/d(1)
+do k = 2, nz_e
+a(k) = ( a(k) - l(k) * a(k-1) ) / d(k)
+rqke_v(k,i,j) = max(rqke_v(k,i,j), qke_min * densrjd )
+rqke_v(k,i,j) = min(max(rqke_v(k,i,j), qke_min * densrjd), qke_max * densrjd)
+rtsq_v(k,i,j) = min(max(rtsq_v(k,i,j), tsq_min * densrjd), tsq_max * densrjd)
+rqsq_v(k,i,j) = min(max(rqsq_v(k,i,j), qsq_min * densrjd), qsq_max * densrjd)
+tq = sqrt(rtsq_v(k,i,j) * rqsq_v(k,i,j))
+if(abs(rcov_v(k,i,j)) > tq) then
+rcov_v(k,i,j) = sign( tq, rcov_v(k,i,j) )
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1151, combined=689, changed=67, unchanged=622, subroutine_definitions=3, calls=0, imports=3, data_definitions=0, save=0, parameter=0, openmp=5, style=13, parallel_loops=4, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=11, other=27)
+========== pbl_vars =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pbl_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pbl_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=11, combined=11, changed=1, unchanged=10, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== physics =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/physics.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/physics.h90
+integer(4):: i
+integer(4):: j
+integer(4):: i
+integer(4):: j
+integer(4):: i
+integer(4):: j
+integer(4) :: i
+integer(4) :: j
+tend_ptemp = 0._rp
+tend_qa = 0._rp
+tend_rmpt_ptb_v_a(k,i,j) = densrjd(k) * ( tend_ptemp(k) * ( 1._rp + r608 * qa(k,i,j,id_qv) - qa(k,i,j,id_qc) - qa(k,i,j,id_qr) - qa(k,i,j,id_qi) - qa(k,i,j,id_qs) - qa(k,i,j,id_qg) - qa(k,i,j,id_qh)) + ptemp(k,i,j) * (r608 * tend_qa(k,id_qv) - tend_qa(k,id_qc) - tend_qa(k,id_qr) - tend_qa(k,id_qi) - tend_qa(k,id_qs) - tend_qa(k,id_qg) - tend_qa(k,id_qh)) ) + mptmp(k,i,j) * tend_dens_ptb_v_a(k,i,j)
+integer(4):: i
+integer(4):: j
+integer(4):: i
+integer(4):: j
+integer(4):: i
+integer(4):: j
+integer(4) :: i
+integer(4) :: j
+tend_ptemp = 0._rp
+tend_qa = 0._rp
+tend_rmpt_ptb_v_a(k,i,j) = densrjd(k) * ( tend_ptemp(k) * ( 1._rp + r608 * qa(k,i,j,id_qv) - qa(k,i,j,id_qc) - qa(k,i,j,id_qr) - qa(k,i,j,id_qi) - qa(k,i,j,id_qs) - qa(k,i,j,id_qg) - qa(k,i,j,id_qh)) + ptemp(k,i,j) * (r608 * tend_qa(k,id_qv) - tend_qa(k,id_qc) - tend_qa(k,id_qr) - tend_qa(k,id_qi) - tend_qa(k,id_qs) - tend_qa(k,id_qg) - tend_qa(k,id_qh)) ) + mptmp(k,i,j) * tend_dens_ptb_v_a(k,i,j)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=734, combined=577, changed=173, unchanged=404, subroutine_definitions=6, calls=3, imports=13, data_definitions=0, save=2, parameter=0, openmp=18, style=2, parallel_loops=10, device_data_init=0, implementation_scheme=0, commented=77, radiation=0, storage_order=0, data_spec=31, other=11)
+========== physics_set_qa =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/physics_set_qa.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/physics_set_qa.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=155, combined=132, changed=3, unchanged=129, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== pp_interface =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/pp_interface.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/pp_interface.h90
+tend_tg(0,tile_land,i,j) = (tout1 - tg(0,tile_land,i,j,it_tend)) / dt
+integer(4), intent(in) :: i, j
+integer(4), intent(in) :: i, j
+tend_tg(0,tile_land,i,j) = (tout1 - tg(0,tile_land,i,j,it_tend)) / dt
+integer(4), intent(in) :: i, j
+integer(4), intent(in) :: i, j
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1743, combined=1407, changed=383, unchanged=1024, subroutine_definitions=13, calls=24, imports=21, data_definitions=0, save=0, parameter=0, openmp=0, style=3, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=317, radiation=0, storage_order=0, data_spec=2, other=3)
+========== radiation =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/radiation.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/radiation.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=13, combined=13, changed=3, unchanged=10, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== smagorinsky_2d =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/smagorinsky_2d.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/smagorinsky_2d.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=297, combined=248, changed=7, unchanged=241, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=6, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== surface =============
+refpath: branches/reference/asuca-kij/Src/PhysicsInterface/surface.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/PhysicsInterface/surface.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=17, combined=17, changed=3, unchanged=14, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=2, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== const =============
+refpath: branches/reference/asuca-kij/Src/Setup/const.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/const.f90
+
+rdp0xx = gasr * p00 ** ( -rdvcp )
+
+rdp0xx = gasr * p00 ** ( -rdvcp )
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=36, combined=36, changed=30, unchanged=6, subroutine_definitions=1, calls=0, imports=1, data_definitions=0, save=1, parameter=24, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=2)
+========== constfile_vars =============
+refpath: branches/reference/asuca-kij/Src/Setup/constfile_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/constfile_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=43, combined=42, changed=9, unchanged=33, subroutine_definitions=1, calls=0, imports=0, data_definitions=0, save=7, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== dvar =============
+refpath: branches/reference/asuca-kij/Src/Setup/dvar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/dvar.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=55, combined=55, changed=19, unchanged=36, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=18, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== fvar =============
+refpath: branches/reference/asuca-kij/Src/Setup/fvar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/fvar.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=76, combined=75, changed=14, unchanged=61, subroutine_definitions=1, calls=0, imports=0, data_definitions=0, save=8, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=4, other=0)
+========== gpv =============
+refpath: branches/reference/asuca-kij/Src/Setup/gpv.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/gpv.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1101, combined=1035, changed=19, unchanged=1016, subroutine_definitions=16, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=2, radiation=0, storage_order=0, data_spec=0, other=0)
+========== grid =============
+refpath: branches/reference/asuca-kij/Src/Setup/grid.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/grid.h90
+print *, "testgrid", nx_mn, nx_mx, ny_mn, ny_mx
+print *, "testgrid", nx_mn, nx_mx, ny_mn, ny_mx
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=617, combined=532, changed=40, unchanged=492, subroutine_definitions=3, calls=32, imports=2, data_definitions=0, save=1, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=1)
+========== metrics =============
+refpath: branches/reference/asuca-kij/Src/Setup/metrics.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/metrics.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1362, combined=1331, changed=82, unchanged=1249, subroutine_definitions=12, calls=32, imports=0, data_definitions=0, save=37, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== monit_vars =============
+refpath: branches/reference/asuca-kij/Src/Setup/monit_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/monit_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=48, combined=48, changed=33, unchanged=15, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=32, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== parameter_control =============
+refpath: branches/reference/asuca-kij/Src/Setup/parameter_control.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Setup/parameter_control.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=209, combined=192, changed=1, unchanged=191, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== parameter_vars =============
+refpath: branches/reference/asuca-kij/Src/Setup/parameter_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/parameter_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=149, combined=149, changed=1, unchanged=148, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== prm =============
+refpath: branches/reference/asuca-kij/Src/Setup/prm.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/prm.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=59, combined=59, changed=37, unchanged=22, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=36, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ref =============
+refpath: branches/reference/asuca-kij/Src/Setup/ref.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/ref.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=21, combined=21, changed=7, unchanged=14, subroutine_definitions=1, calls=0, imports=0, data_definitions=0, save=5, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rw3d =============
+refpath: branches/reference/asuca-kij/Src/Setup/rw3d.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/rw3d.h90
+public read3d_convkij, write3d_convijk, write_const, write_svar, write_ib, write_ref, read_const, read_ref, read_ini, read_svar
+public read3d_convkij, write3d_convijk, write_const, write_svar, write_ib, write_ref, read_const, read_ref, read_ini, read_svar
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=694, combined=559, changed=75, unchanged=484, subroutine_definitions=5, calls=62, imports=6, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=1)
+========== svar =============
+refpath: branches/reference/asuca-kij/Src/Setup/svar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/svar.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=136, combined=136, changed=21, unchanged=115, subroutine_definitions=4, calls=0, imports=0, data_definitions=0, save=16, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== tendvar =============
+refpath: branches/reference/asuca-kij/Src/Setup/tendvar.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/tendvar.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=52, combined=52, changed=24, unchanged=28, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=23, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== timeset =============
+refpath: branches/reference/asuca-kij/Src/Setup/timeset.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/timeset.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=471, combined=421, changed=9, unchanged=412, subroutine_definitions=2, calls=1, imports=5, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== timeset_vars =============
+refpath: branches/reference/asuca-kij/Src/Setup/timeset_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Setup/timeset_vars.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=56, combined=56, changed=4, unchanged=52, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=3, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== debug =============
+refpath: branches/reference/asuca-kij/Src/Util/debug.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Util/debug.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=449, combined=401, changed=1, unchanged=400, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== diagnose =============
+refpath: branches/reference/asuca-kij/Src/Util/diagnose.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/diagnose.h90
+qa7(k,i,j,0) = 0._rp
+qa7(k,i,j,0) = 0._rp
+qa7(k,i,j,0) = 0._rp
+qa7(k,i,j,0) = 0._rp
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1724, combined=996, changed=279, unchanged=717, subroutine_definitions=12, calls=4, imports=6, data_definitions=0, save=0, parameter=0, openmp=23, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=230, radiation=0, storage_order=0, data_spec=2, other=2)
+========== lbc =============
+refpath: branches/reference/asuca-kij/Src/Util/lbc.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/lbc.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=982, combined=835, changed=79, unchanged=756, subroutine_definitions=10, calls=14, imports=14, data_definitions=0, save=15, parameter=0, openmp=3, style=0, parallel_loops=22, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ndiff =============
+refpath: branches/reference/asuca-kij/Src/Util/ndiff.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/ndiff.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=59, combined=51, changed=8, unchanged=43, subroutine_definitions=0, calls=0, imports=2, data_definitions=0, save=0, parameter=0, openmp=2, style=1, parallel_loops=2, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== positive =============
+refpath: branches/reference/asuca-kij/Src/Util/positive.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Dynamics/positive.h90
+pmod = pmod + max(-p(k), 0._rp)
+p(k) = max(p(k), 0._rp)
+psum = psum + p(k)
+p(k) = p(k) * pmod
+pmod = pmod + max(-p(k), 0._rp)
+p(k) = max(p(k), 0._rp)
+psum = psum + p(k)
+p(k) = p(k) * pmod
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=65, combined=63, changed=8, unchanged=55, subroutine_definitions=1, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=4)
+========== restart =============
+refpath: branches/reference/asuca-kij/Src/Util/restart.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/restart.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=39, combined=39, changed=1, unchanged=38, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== restart_vars =============
+refpath: branches/reference/asuca-kij/Src/Util/restart_vars.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/restart_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=7, combined=7, changed=1, unchanged=6, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rldamp =============
+refpath: branches/reference/asuca-kij/Src/Util/rldamp.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/rldamp.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=294, combined=263, changed=17, unchanged=246, subroutine_definitions=0, calls=0, imports=3, data_definitions=0, save=2, parameter=0, openmp=0, style=9, parallel_loops=2, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== tmanage =============
+refpath: branches/reference/asuca-kij/Src/Util/tmanage.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/tmanage.h90
+integer(4):: k,i,j
+integer(4):: k,i,j
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=260, combined=215, changed=57, unchanged=158, subroutine_definitions=4, calls=4, imports=6, data_definitions=0, save=0, parameter=0, openmp=20, style=0, parallel_loops=20, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=1, other=1)
+========== util =============
+refpath: branches/reference/asuca-kij/Src/Util/util.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/util.H90
+tempv = temp(kref,i,j) * ( 1._rp + r608 * qv(kref,i,j) )
+vel_x_w = ( vel_x(1,i-1,j) + vel_x(1,i,j) ) * 0.5_rp
+vel_y_w = ( vel_y(1,i,j-1) + vel_y(1,i,j) ) * 0.5_rp
+vel_zi(0,i,j) = vel_x_w      * dzidx_ph(0,i,j) + vel_y_w      * dzidy_ph(0,i,j)
+tempv = temp(kref,i,j) * ( 1._rp + r608 * qv(kref,i,j) )
+vel_x_w = ( vel_x(1,i-1,j) + vel_x(1,i,j) ) * 0.5_rp
+vel_y_w = ( vel_y(1,i,j-1) + vel_y(1,i,j) ) * 0.5_rp
+vel_zi(0,i,j) = vel_x_w      * dzidx_ph(0,i,j) + vel_y_w      * dzidy_ph(0,i,j)
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=1426, combined=1256, changed=27, unchanged=1229, subroutine_definitions=1, calls=2, imports=0, data_definitions=0, save=0, parameter=0, openmp=1, style=14, parallel_loops=2, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=2, other=4)
+========== yy_intp =============
+refpath: branches/reference/asuca-kij/Src/Util/yy_intp.f90, hfpath: branches/hybrid/asuca-kij/HybridSources/Util/yy_intp.h90
+
+
+Analysis(all=401, h90=401, f90=0, whitespace=22, comments=91, stripped=53, combined=53, changed=2, unchanged=51, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=1, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== aprm =============
+refpath: branches/reference/asuca-kij/Src/Var/aprm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/aprm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=76, combined=76, changed=0, unchanged=76, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== avar =============
+refpath: branches/reference/asuca-kij/Src/Var/avar.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/avar.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=35, combined=35, changed=0, unchanged=35, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== bger_stat =============
+refpath: branches/reference/asuca-kij/Src/Var/bger_stat.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/bger_stat.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=95, combined=85, changed=0, unchanged=85, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== bgstate =============
+refpath: branches/reference/asuca-kij/Src/Var/bgstate.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/bgstate.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=334, combined=267, changed=1, unchanged=266, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== bvar =============
+refpath: branches/reference/asuca-kij/Src/Var/bvar.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/bvar.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=509, combined=454, changed=0, unchanged=454, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== consistency_check =============
+refpath: branches/reference/asuca-kij/Src/Var/consistency_check.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/consistency_check.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=83, combined=81, changed=0, unchanged=81, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== cost =============
+refpath: branches/reference/asuca-kij/Src/Var/cost.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/cost.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=235, combined=219, changed=0, unchanged=219, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ctrl_factory =============
+refpath: branches/reference/asuca-kij/Src/Var/ctrl_factory.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/ctrl_factory.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=274, combined=270, changed=0, unchanged=270, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== ctrl_proxy =============
+refpath: branches/reference/asuca-kij/Src/Var/ctrl_proxy.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/ctrl_proxy.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=225, combined=219, changed=0, unchanged=219, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== cutoff_time =============
+refpath: branches/reference/asuca-kij/Src/Var/cutoff_time.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/cutoff_time.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=30, combined=24, changed=0, unchanged=24, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== eispack =============
+refpath: branches/reference/asuca-kij/Src/Var/eispack.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/eispack.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=8546, combined=8522, changed=1, unchanged=8521, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== iterator =============
+refpath: branches/reference/asuca-kij/Src/Var/iterator.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/iterator.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=35, combined=33, changed=0, unchanged=33, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== minimizer =============
+refpath: branches/reference/asuca-kij/Src/Var/minimizer.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/minimizer.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=395, combined=338, changed=0, unchanged=338, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== model_operator_fake =============
+refpath: branches/reference/asuca-kij/Src/Var/model_operator_fake.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/model_operator_fake.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=13, combined=13, changed=0, unchanged=13, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== monitda =============
+refpath: branches/reference/asuca-kij/Src/Var/monitda.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/monitda.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=40, combined=27, changed=0, unchanged=27, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== mpilbfgs94 =============
+refpath: branches/reference/asuca-kij/Src/Var/mpilbfgs94.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/mpilbfgs94.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1025, combined=988, changed=1, unchanged=987, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=1)
+========== mpirfilter =============
+refpath: branches/reference/asuca-kij/Src/Var/mpirfilter.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/mpirfilter.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=820, combined=739, changed=0, unchanged=739, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== optim =============
+refpath: branches/reference/asuca-kij/Src/Var/optim.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/optim.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=158, combined=148, changed=0, unchanged=148, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== outputda =============
+refpath: branches/reference/asuca-kij/Src/Var/outputda.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/outputda.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=30, combined=25, changed=0, unchanged=25, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== outputda_grads =============
+refpath: branches/reference/asuca-kij/Src/Var/outputda_grads.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/outputda_grads.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=172, combined=165, changed=0, unchanged=165, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== outputda_nusdas =============
+refpath: branches/reference/asuca-kij/Src/Var/outputda_nusdas.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/outputda_nusdas.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=1101, combined=1007, changed=0, unchanged=1007, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== outputda_vars =============
+refpath: branches/reference/asuca-kij/Src/Var/outputda_vars.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/outputda_vars.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=32, combined=32, changed=0, unchanged=32, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== penalty =============
+refpath: branches/reference/asuca-kij/Src/Var/penalty.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/penalty.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=43, combined=37, changed=0, unchanged=37, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== penalty_divflx =============
+refpath: branches/reference/asuca-kij/Src/Var/penalty_divflx.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/penalty_divflx.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=675, combined=546, changed=0, unchanged=546, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== postda =============
+refpath: branches/reference/asuca-kij/Src/Var/postda.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/postda.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=290, combined=263, changed=0, unchanged=263, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== rf_lib =============
+refpath: branches/reference/asuca-kij/Src/Var/rf_lib.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/rf_lib.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=797, combined=773, changed=1, unchanged=772, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=1, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trajectory =============
+refpath: branches/reference/asuca-kij/Src/Var/trajectory.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trajectory.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=109, combined=109, changed=0, unchanged=109, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans =============
+refpath: branches/reference/asuca-kij/Src/Var/trans.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=165, combined=160, changed=0, unchanged=160, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans_cd =============
+refpath: branches/reference/asuca-kij/Src/Var/trans_cd.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans_cd.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=5, combined=5, changed=0, unchanged=5, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans_element =============
+refpath: branches/reference/asuca-kij/Src/Var/trans_element.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans_element.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=841, combined=658, changed=0, unchanged=658, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans_eof =============
+refpath: branches/reference/asuca-kij/Src/Var/trans_eof.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans_eof.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=224, combined=185, changed=0, unchanged=185, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans_rf =============
+refpath: branches/reference/asuca-kij/Src/Var/trans_rf.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans_rf.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=145, combined=108, changed=0, unchanged=108, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== trans_vc =============
+refpath: branches/reference/asuca-kij/Src/Var/trans_vc.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/trans_vc.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=133, combined=115, changed=0, unchanged=115, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== varda =============
+refpath: branches/reference/asuca-kij/Src/Var/varda.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/varda.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=180, combined=128, changed=0, unchanged=128, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== varda_conf =============
+refpath: branches/reference/asuca-kij/Src/Var/varda_conf.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/varda_conf.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=116, combined=100, changed=1, unchanged=99, subroutine_definitions=0, calls=0, imports=1, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== vert_coord =============
+refpath: branches/reference/asuca-kij/Src/Var/vert_coord.f90, hfpath: branches/hybrid/asuca-kij/Framework/Src/Var/vert_coord.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=113, combined=107, changed=0, unchanged=107, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== asc2lfm =============
+refpath: branches/reference/asuca-kij/Tools/asc2lfm/asc2lfm.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/asc2lfm.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=591, combined=512, changed=0, unchanged=512, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== const =============
+refpath: branches/reference/asuca-kij/Tools/asc2lfm/const.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/const.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=116, combined=111, changed=0, unchanged=111, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== vardef =============
+refpath: branches/reference/asuca-kij/Tools/asc2lfm/vardef.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/vardef.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=8, combined=8, changed=0, unchanged=8, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== z2p =============
+refpath: branches/reference/asuca-kij/Tools/asc2lfm/z2p.f90, hfpath: branches/hybrid/asuca-kij/Framework/Tools/asc2lfm/z2p.f90
+
+
+Analysis(all=401, h90=0, f90=401, whitespace=22, comments=91, stripped=199, combined=194, changed=0, unchanged=194, subroutine_definitions=0, calls=0, imports=0, data_definitions=0, save=0, parameter=0, openmp=0, style=0, parallel_loops=0, device_data_init=0, implementation_scheme=0, commented=0, radiation=0, storage_order=0, data_spec=0, other=0)
+========== TOTAL =============
+Analysis(all=118295, h90=40501, f90=77794, whitespace=6490, comments=26845, stripped=110134, combined=94030, changed=7357, unchanged=86673, subroutine_definitions=264, calls=661, imports=258, data_definitions=89, save=241, parameter=199, openmp=108, style=297, parallel_loops=76, device_data_init=0, implementation_scheme=0, commented=2703, radiation=1057, storage_order=0, data_spec=965, other=439)
